@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------
+# .gitignore per CUSTOM DOCKER LAB @enricomarogna
+# ver 20220222
+#
+# Per default tutti i files e cartelle vengono ignorate.
+# È neccessario inserire in whitelist tutti i files/cartelle che si
+# vuole mettere sotto controllo di vesrione
+#
+# To ignore uncommitted changes in a file that is already tracked, use 
+# git update-index --assume-unchanged
+#
+# To stop tracking a file that is currently tracked, use 
+# git rm --cached
+#
+# -----------------------------------------------------------------
+
+# ignora qualunque file e cartella
+*
+*/
+
+#### WHITELIST
+!.gitignore
+
+# SERVICES LAB
+!services_lab
+!services_lab/*
+!README.md
