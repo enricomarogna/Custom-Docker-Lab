@@ -15,7 +15,17 @@
 ---
 ## RETE
 ### CREAZIONE **MACVLAN**
-La rete MACVLAN ospiterà **Nginx Proxy Manager** e containers e viene creata in questo modo:
+La rete MACVLAN ospiterà **Nginx Proxy Manager** e containers, verrà denominata **npm_proxy** e viene creata in questo modo:
+
+Determinare l'interfaccia di rete attiva dell'host:
+```bash
+ifconfig
+```
+o meglio:
+```bash
+ip route get 1.1.1.1 | sed -nr 's/.*dev ([^\ ]+).*/\1/p'
+```
+Supponendo di ottenere `eth0`, che la subnet sia `192.168.1.0/24`, il gateway `192.168.1.1` e di voler chiamare la rete `npm_proxy`:
 
 ```bash
 sudo docker network create -d macvlan -o parent=eth0 --subnet=192.168.1.0/24 --gateway=192.168.1.1 --ip-range=192.168.1.100/24 npm_proxy
@@ -23,10 +33,14 @@ sudo docker network create -d macvlan -o parent=eth0 --subnet=192.168.1.0/24 --g
 N.B.: Sarà neccessario aprire le porte `80` e `443` del router sull'ip del container di **Nginx Proxy Manager**.
 
 ### CREAZIONE RETE **BRIDGE**
-Questa servirà alla comunicazione con l'host:
+Questa servirà alla comunicazione tra l'host e il container di **Nginx Proxy Manager**:
 - Subnet: `192.168.200.0/24`
 - Ip range: `192.168.200.2/32`
 - Gataway: `192.168.200.1`
+
+```bash
+sudo docker network create --subnet=192.168.200.0/24 --gateway=192.168.200.1 --ip-range=192.168.200.2/32 npm_bridge
+```
 
 Aprire sul firewall l'ip `192.168.200.2` con sottomaschera `255.255.255.255`
 
@@ -36,30 +50,32 @@ Aprire sul firewall l'ip `192.168.200.2` con sottomaschera `255.255.255.255`
 ### LABORATORIO
 ```
 root
-    |-- README.md
+    |__ README.md
     |
-    |-- .gitignore
+    |__ .gitignore
     |
-    |-- profile_1
-    |   |-- container_folder/
+    |__ profile_1
+    |   |__ container_folder/
     |   |   |__ .env
     |   |   |__ README.md
     |   |   |__ docker-compose.yml
     |   |   |__ conf_folder/
+    |   |   |   |__ .gitignore
     |   |   |__ secrets_folder/
     |   |       |__ secret_name.txt
     |   |
     |   |
-    |   |-- container_folder/
+    |   |__ container_folder/
     |       |__ .env
     |       |__ README.md
     |       |__ docker-compose.yml
     |       |__ conf_folder/
+    |   |   |   |__ .gitignore
     |       |__ secrets_folder/
     |           |__ secret_name.txt
     |
     |-- profile_2
-        |-- ...
+        |__ ...
 ```
 
 ### VARIABILI - *.env*
@@ -90,11 +106,6 @@ networks:
     external:
       name: npm_proxy
 
-# SECRETS
-secrets:
-  container_secret_name:
-  file: ./secrets_folder/secret_name.txt
-
 # SERVICES
 services:
   cont_name:
@@ -106,8 +117,6 @@ services:
       - TZ=${TZ}
     volumes:
       - './conf_folder:/data'
-    secrets:
-      - secret_name
     labels:
       - "diun.enable=true"
       # Flame
@@ -140,3 +149,36 @@ Per la creazione del *secret* è necessario, a partire dalla root del container,
 - Creazione del file che contiente il segreto `nano secret_name.txt`
 - Salvare `^O` e uscire `^X`
 - Creazione del segreto `docker secret create secret_name secret_name.txt`
+
+Dichiararne l'utilizzo in *docker-compose.yml*:
+```yml
+version: "3.7"
+
+# NETWORKS
+networks:
+  [...]
+
+# SECRETS
+secrets:
+  container_secret_name:
+  file: ./secrets_folder/secret_name.txt
+
+# SERVICES
+services:
+  [...]
+```
+e utilizzarlo all'interno del container, aggiungendo al nome della variabile **_FILE**:
+
+```yml
+# SERVICES
+services:
+  cont_name:
+    [...]
+    volumes:
+      - VARIABILE_FILE=/run/secrets/container_secret_name
+    secrets:
+      - container_secret_name
+    [...]
+```
+
+**N.B.:** alcune immagini con consentono l'uitilizzo dei secret e sarà quindi necessario optare per l'inserimento della password/token come variabile dentro *.env*
