@@ -20,8 +20,12 @@
 
 #### WHITELIST
 !.gitignore
+!README.md
+!.env.example
+!docker-compose.yml
 
 # SERVICES LAB
-!services_lab
-!services_lab/*
-!README.md
+# Linkding
+!services_lab/
+!services_lab/linkding/
+!services_lab/linkding/conf/

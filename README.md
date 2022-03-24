@@ -7,6 +7,12 @@
 - **Switch**: `Zyxel 8Port Desktop Gigabit Ethernet`
 
 ---
+## PANORAMICA
+
+#### SERVICES
+- [Linkding](/services_lab/linkding/) - Gestore segnalibri minimale, veloce e leggero.
+
+---
 ## RETE
 ### CREAZIONE **MACVLAN**
 La rete MACVLAN ospiterà **Nginx Proxy Manager** e containers e viene creata in questo modo:
@@ -41,7 +47,7 @@ root
     |   |   |__ docker-compose.yml
     |   |   |__ conf_folder/
     |   |   |__ secrets_folder/
-    |   |       |__ contsecret_nameainer_secret_name.txt
+    |   |       |__ secret_name.txt
     |   |
     |   |
     |   |-- container_folder/
@@ -50,7 +56,7 @@ root
     |       |__ docker-compose.yml
     |       |__ conf_folder/
     |       |__ secrets_folder/
-    |           |__ contsecret_nameainer_secret_name.txt
+    |           |__ secret_name.txt
     |
     |-- profile_2
         |-- ...
@@ -70,6 +76,7 @@ IP=                         # Indirizzo ip univoco da assegnare al cont
 PORT_INT=                   # Porta interna del container
 PORT_PUB=                   # Porta pubblica del container
 PROFILE=                    # Profilo 
+DOMAIN_NAME=                # Nome dominio, es. dominio.com
 ```
 
 ### CONTAINER - *docker-compose.yml*
@@ -90,27 +97,46 @@ secrets:
 
 # SERVICES
 services:
-  ${CONTAINER_NAME}:
-  container_name: ${CONTAINER_NAME}
-  image: ${IMG_LINK}:${IMG_VERSION:-latest}
-  environment:
-    - PUID=${PUID}
-    - PGID=${PGID}
-    - TZ=${TZ}
-  volumes:
-    - './conf_folder:/data'
-  secrets:
-    - secret_name
-  labels:
-    - "diun.enable=true"
-  ports:
-    - target: ${PORT_INT}
-      #published: ${PORT_PUB}
-      protocol: tcp
-  networks:
-    npm_proxy:
-    ipv4_address: ${IP}
-  profiles:
-    - ${PROFILE}
-  restart: unless-stopped
+  cont_name:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - './conf_folder:/data'
+    secrets:
+      - secret_name
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
 ```
+
+---
+
+## SECRETS
+Per alcuni containers è necessario indicare dati sensibili, come *passwords* oppure dei *token* e riportali nel *docker-compose.yml* o nel file *.env* è una pratica sconsigliata per quanto riguarda la sicurezza poichè questi dati vengono riportati all'interno del container, pertanto un attaccante potrebbe entrarne in possesso.
+Per questo sono stati sviluppati i *secrets*.
+
+#### CREAZIONE DEL SECRET
+Per la creazione del *secret* è necessario, a partire dalla root del container, assegnare i proprietari e i permessi:
+- Assegnazione dell'utente e del gruppo proprietario della *secrets_folder* e dei suoi files `sudo chown -R root:root secrets_folder/`
+- Permessi della *secrets_folder* e dei suoi files `sudo chmod -R 600 secrets_folder/`
+- Creazione del file che contiente il segreto `nano secret_name.txt`
+- Salvare `^O` e uscire `^X`
+- Creazione del segreto `docker secret create secret_name secret_name.txt`
