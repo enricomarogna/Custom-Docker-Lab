@@ -27,13 +27,16 @@
 
 ## MONITORING LAB
 !monitoring_lab/
-# Flame
-!monitoring_lab/flame/
-!monitoring_lab/flame/conf/
 # Diun
 !monitoring_lab/diun/
 !monitoring_lab/diun/conf/
 !monitoring_lab/diun/secrets/
+# Flame
+!monitoring_lab/flame/
+!monitoring_lab/flame/conf/
+# Glances
+!monitoring_lab/glances
+!monitoring_lab/glances/conf
 
 
 ## SERVICES LAB

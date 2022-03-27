@@ -13,6 +13,7 @@
 |:------------------------|:-----------------------------------------------------|
 | [Diun][]                | Notificatore aggiornamento immagini                  |
 | [Flame][]               | Startpage leggero con editor integrato               |
+| [Glances][]             | Strumento di monitoraggio multipiattaforma           |
 | [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
 | [Socket Proxy][]        | Connessione proxy al docker socket                   |
 
@@ -190,7 +191,8 @@ services:
 
 
 
+[Diun]:           /monitoring_lab/diun/
+[Flame]:          /monitoring_lab/flame/
+[Glances]:        /monitoring_lab/glances/
 [Linkding]:       /services_lab/linkding/
 [Socket Proxy]:   /services_lab/socket_proxy/
-[Flame]:          /monitoring_lab/flame/
-[Diun]:           /monitoring_lab/diun/
