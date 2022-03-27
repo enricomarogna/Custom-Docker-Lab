@@ -11,9 +11,10 @@
 
 | SERVIZI                 | DESCRIZIONE                                          |
 |:------------------------|:-----------------------------------------------------|
+| [Diun][]                | Notificatore aggiornamento immagini                  |
+| [Flame][]               | Startpage leggero con editor integrato               |
 | [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
 | [Socket Proxy][]        | Connessione proxy al docker socket                   |
-| [Flame][]               | Startpage leggero con editor integrato               |
 
 
 ---
@@ -192,3 +193,4 @@ services:
 [Linkding]:       /services_lab/linkding/
 [Socket Proxy]:   /services_lab/socket_proxy/
 [Flame]:          /monitoring_lab/flame/
+[Diun]:           /monitoring_lab/diun/

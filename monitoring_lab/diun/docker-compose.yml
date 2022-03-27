@@ -1,0 +1,46 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  gotify_token:
+    file: ./secrets/diun_gotify_token.txt
+
+# SERVICES
+services:
+  diun:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    command: serve
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket_proxy:2375
+      - DIUN_NOTIF_GOTIFY_ENDPOINT=http://gotify:80
+      - DIUN_NOTIF_PUSHOVER_TOKENFILE=/run/secrets/gotify_token
+      - "LOG_LEVEL=info"
+      - "LOG_JSON=false"
+      - "DIUN_WATCH_WORKERS=20"
+      - "DIUN_WATCH_SCHEDULE=0 */6 * * *"
+      - "DIUN_PROVIDERS_DOCKER=true"
+      - "DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true" # rileva tutti i container, anche quelli sprovvisti della label "diun.enable=true"
+    volumes:
+      - './conf:/data'
+    secrets:
+      - gotify_token
+    labels:
+      - "diun.enable=true"
+      - "diun.watch_repo=true"
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

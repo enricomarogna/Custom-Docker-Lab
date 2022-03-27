@@ -18,26 +18,28 @@
 *
 */
 
-#### WHITELIST
+#### ------- WHITELIST -------
 !.gitignore
 !README.md
 !.env.example
 !docker-compose.yml
 
 
-# MONITORING LAB
-# Flame
+## MONITORING LAB
 !monitoring_lab/
+# Flame
 !monitoring_lab/flame/
 !monitoring_lab/flame/conf/
+# Diun
+!monitoring_lab/diun/
+!monitoring_lab/diun/conf/
+!monitoring_lab/diun/secrets/
 
 
-# SERVICES LAB
+## SERVICES LAB
 !services_lab/
-
 # Socket Proxy
 !services_lab/socket_proxy/
-
 # Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/
