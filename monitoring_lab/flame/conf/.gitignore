@@ -1,0 +1,6 @@
+# Ignora quialsiasi file e cartella all'interno di questa directoy
+*
+# Eccetto questo file
+!.gitignore
+!uploads/
+!uploads/*.svg

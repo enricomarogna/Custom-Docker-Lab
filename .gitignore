@@ -24,8 +24,20 @@
 !.env.example
 !docker-compose.yml
 
+
+# MONITORING LAB
+# Flame
+!monitoring_lab/
+!monitoring_lab/flame/
+!monitoring_lab/flame/conf/
+
+
 # SERVICES LAB
-# Linkding
 !services_lab/
+
+# Socket Proxy
+!services_lab/socket_proxy/
+
+# Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/

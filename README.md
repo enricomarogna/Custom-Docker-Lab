@@ -2,15 +2,19 @@
 # CUSTOM DOCKER LAB
 
 ## Hardware:
-- **Host**: `Synology NAS DS720+ - DSM6 - 10GB RAM - 4TB Raid SHR`
+- **Host**: `Synology NAS DS720+ - DSM6 - 10GB RAM - 1TB CACHE SSD RAID1 - 4TB Raid SHR`
 - **Modem/Router**: `Fritz!Box 7590 - OS 07.39-94931 BETA - Wireguard VPN`
 - **Switch**: `Zyxel 8Port Desktop Gigabit Ethernet`
 
 ---
 ## PANORAMICA
 
-#### SERVICES
-- [Linkding](/services_lab/linkding/) - Gestore segnalibri minimale, veloce e leggero.
+| SERVIZI                 | DESCRIZIONE                                          |
+|:------------------------|:-----------------------------------------------------|
+| [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
+| [Socket Proxy][]        | Connessione proxy al docker socket                   |
+| [Flame][]               | Startpage leggero con editor integrato               |
+
 
 ---
 ## RETE
@@ -182,3 +186,9 @@ services:
 ```
 
 **N.B.:** alcune immagini con consentono l'uitilizzo dei secret e sarà quindi necessario optare per l'inserimento della password/token come variabile dentro *.env*
+
+
+
+[Linkding]:       /services_lab/linkding/
+[Socket Proxy]:   /services_lab/socket_proxy/
+[Flame]:          /monitoring_lab/flame/

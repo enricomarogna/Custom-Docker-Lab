@@ -1,0 +1,40 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  password:
+    file: ./secrets/flame_password.txt
+
+# SERVICES
+services:
+  flame:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PASSWORD_FILE=/run/secrets/password # BUG https://github.com/pawelmalak/flame/issues/275
+    volumes:
+      - './conf:/app/data'
+    secrets:
+      - password
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
