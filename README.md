@@ -15,6 +15,7 @@
 | [Flame][]               | Startpage leggero con editor integrato               |
 | [Glances][]             | Strumento di monitoraggio multipiattaforma           |
 | [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
+| [RssBridge][]           | Generatore di feed RSS e Atom                        |
 | [Socket Proxy][]        | Connessione proxy al docker socket                   |
 
 
@@ -195,4 +196,5 @@ services:
 [Flame]:          /monitoring_lab/flame/
 [Glances]:        /monitoring_lab/glances/
 [Linkding]:       /services_lab/linkding/
+[RssBridge]:      /services_lab/rssbridge/
 [Socket Proxy]:   /services_lab/socket_proxy/

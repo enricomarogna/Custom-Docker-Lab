@@ -46,3 +46,6 @@
 # Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/
+# Rss Bridge
+!services_lab/rssbridge/
+!services_lab/rssbridge/conf
