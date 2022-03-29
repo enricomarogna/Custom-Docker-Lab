@@ -6,6 +6,9 @@ networks:
   npm_proxy:
     external:
       name: npm_proxy
+  npm_socket_proxy:
+    external:
+      name: npm_socket_proxy
 
 # SECRETS
 secrets:
@@ -41,6 +44,8 @@ services:
     networks:
       npm_proxy:
         ipv4_address: ${IP}
+      npm_socket_proxy:
+        ipv4_address: ${IP_SP}
     profiles:
       - ${PROFILE}
     restart: unless-stopped
