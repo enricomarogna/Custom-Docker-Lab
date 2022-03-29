@@ -21,7 +21,7 @@
 
 ---
 ## RETE
-### CREAZIONE **MACVLAN**
+### 1. CREAZIONE **MACVLAN**
 La rete MACVLAN ospiterà **Nginx Proxy Manager** e containers, verrà denominata **npm_proxy** e viene creata in questo modo:
 
 Determinare l'interfaccia di rete attiva dell'host:
@@ -39,7 +39,14 @@ sudo docker network create -d macvlan -o parent=eth0 --subnet=192.168.1.0/24 --g
 ```
 N.B.: Sarà neccessario aprire le porte `80` e `443` del router sull'ip del container di **Nginx Proxy Manager**.
 
-### CREAZIONE RETE **BRIDGE**
+### 2. CREAZIONE RETE SOCKET PROXY
+Questo network avrà la funzione di isolare il **socket proxy** e i containers che ne fanno utilizzo.
+
+```bash
+sudo docker network create --subnet 192.168.33.0/24 --gateway 192.168.33.1 npm_socket_proxy
+```
+
+### 3. CREAZIONE RETE **BRIDGE**
 Questa servirà alla comunicazione tra l'host e il container di **Nginx Proxy Manager**:
 - Subnet: `192.168.200.0/24`
 - Ip range: `192.168.200.2/32`
