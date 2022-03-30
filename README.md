@@ -187,7 +187,7 @@ services:
     [...]
 ```
 
-**N.B.:** alcune immagini con consentono l'uitilizzo dei secret e sarà quindi necessario optare per l'inserimento della password/token come variabile dentro *.env*
+**N.B.:** alcune immagini con consentono l'utilizzo dei secret e sarà quindi necessario optare per l'inserimento della password/token come variabile dentro *.env*
 
 
 
