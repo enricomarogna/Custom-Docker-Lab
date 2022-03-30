@@ -16,9 +16,11 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DOCKER_HOST=tcp://socket_proxy:2375
+      #- DOCKER_HOST=tcp://socket_proxy:2375
       - GLANCES_OPT=-w
+    #pid: host
     volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf/glances.conf:/glances/conf/glances.conf'
     labels:
       # Diun

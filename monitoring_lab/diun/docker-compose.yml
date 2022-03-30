@@ -6,13 +6,10 @@ networks:
   npm_proxy:
     external:
       name: npm_proxy
-  npm_socket_proxy:
-    external:
-      name: npm_socket_proxy
 
 # SECRETS
 secrets:
-  gotify_token:
+  diun_gotify_token:
     file: ./secrets/diun_gotify_token.txt
 
 # SERVICES
@@ -25,9 +22,9 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket_proxy:2375
+      #- DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket_proxy:2375
       - DIUN_NOTIF_GOTIFY_ENDPOINT=http://gotify:80
-      - DIUN_NOTIF_PUSHOVER_TOKENFILE=/run/secrets/gotify_token
+      - DIUN_NOTIF_PUSHOVER_TOKENFILE=/run/secrets/diun_gotify_token
       - "LOG_LEVEL=info"
       - "LOG_JSON=false"
       - "DIUN_WATCH_WORKERS=20"
@@ -35,17 +32,16 @@ services:
       - "DIUN_PROVIDERS_DOCKER=true"
       - "DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true" # rileva tutti i container, anche quelli sprovvisti della label "diun.enable=true"
     volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf:/data'
     secrets:
-      - gotify_token
+      - diun_gotify_token
     labels:
       - "diun.enable=true"
       - "diun.watch_repo=true"
     networks:
       npm_proxy:
         ipv4_address: ${IP}
-      npm_socket_proxy:
-        ipv4_address: ${IP_SP}
     profiles:
       - ${PROFILE}
     restart: unless-stopped

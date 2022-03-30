@@ -16,7 +16,6 @@
 | [Glances][]             | Strumento di monitoraggio multipiattaforma           |
 | [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
 | [RssBridge][]           | Generatore di feed RSS e Atom                        |
-| [Socket Proxy][]        | Connessione proxy al docker socket                   |
 
 
 ---
@@ -39,14 +38,7 @@ sudo docker network create -d macvlan -o parent=eth0 --subnet=192.168.1.0/24 --g
 ```
 N.B.: Sarà neccessario aprire le porte `80` e `443` del router sull'ip del container di **Nginx Proxy Manager**.
 
-### 2. CREAZIONE RETE SOCKET PROXY
-Questo network avrà la funzione di isolare il **socket proxy** e i containers che ne fanno utilizzo.
-
-```bash
-sudo docker network create --subnet 192.168.33.0/24 --gateway 192.168.33.1 npm_socket_proxy
-```
-
-### 3. CREAZIONE RETE **BRIDGE**
+### 2. CREAZIONE RETE **BRIDGE**
 Questa servirà alla comunicazione tra l'host e il container di **Nginx Proxy Manager**:
 - Subnet: `192.168.200.0/24`
 - Ip range: `192.168.200.2/32`
@@ -199,9 +191,9 @@ services:
 
 
 
+
 [Diun]:           /monitoring_lab/diun/
 [Flame]:          /monitoring_lab/flame/
 [Glances]:        /monitoring_lab/glances/
 [Linkding]:       /services_lab/linkding/
 [RssBridge]:      /services_lab/rssbridge/
-[Socket Proxy]:   /services_lab/socket_proxy/

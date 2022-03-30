@@ -6,9 +6,6 @@ networks:
   npm_proxy:
     external:
       name: npm_proxy
-  npm_socket_proxy:
-    external:
-      name: npm_socket_proxy
 
 # SECRETS
 secrets:
@@ -25,8 +22,9 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - PASSWORD_FILE=/run/secrets/password # BUG https://github.com/pawelmalak/flame/issues/275
-      - DOCKER_HOST=tcp://socket_proxy:2375
+      #- DOCKER_HOST=tcp://socket_proxy:2375
     volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf:/app/data'
     secrets:
       - password
@@ -39,8 +37,6 @@ services:
     networks:
       npm_proxy:
         ipv4_address: ${IP}
-      npm_socket_proxy:
-        ipv4_address: ${IP_SP}
     profiles:
       - ${PROFILE}
     restart: unless-stopped

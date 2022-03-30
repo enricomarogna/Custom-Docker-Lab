@@ -3,7 +3,7 @@ version: "3.7"
 
 # NETWORKS
 networks:
-  npm_proxy:
+  npm_socket_proxy:
     external:
       name: npm_socket_proxy
 
@@ -15,7 +15,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - LOG_LEVEL=info
+      - LOG_LEVEL=debug
       - EVENTS=1
       - PING=1
       - VERSION=1
@@ -55,7 +55,7 @@ services:
         #published: ${PORT_PUB}
         protocol: tcp
     networks:
-      npm_proxy:
+      npm_socket_proxy:
         ipv4_address: ${IP}
     profiles:
       - ${PROFILE}
