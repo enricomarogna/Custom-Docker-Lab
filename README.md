@@ -9,13 +9,14 @@
 ---
 ## PANORAMICA
 
-| SERVIZI                 | DESCRIZIONE                                          |
-|:------------------------|:-----------------------------------------------------|
-| [Diun][]                | Notificatore aggiornamento immagini                  |
-| [Flame][]               | Startpage leggero con editor integrato               |
-| [Glances][]             | Strumento di monitoraggio multipiattaforma           |
-| [Linkding][]            | Gestore segnalibri minimale, veloce e leggero        |
-| [RssBridge][]           | Generatore di feed RSS e Atom                        |
+| SERVIZI                 | PROFILO   | DESCRIZIONE                                          |
+|:------------------------|:----------|:-----------------------------------------------------|
+| [Diun][]                |Monitoring | Notificatore aggiornamento immagini                  |
+| [Flame][]               |Monitoring | Startpage leggero con editor integrato               |
+| [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma           |
+| [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                |
+| [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero        |
+| [RssBridge][]           |Services   | Generatore di feed RSS e Atom                        |
 
 
 ---
@@ -192,8 +193,9 @@ services:
 
 
 
-[Diun]:           /monitoring_lab/diun/
-[Flame]:          /monitoring_lab/flame/
-[Glances]:        /monitoring_lab/glances/
-[Linkding]:       /services_lab/linkding/
-[RssBridge]:      /services_lab/rssbridge/
+[Diun]:                   /monitoring_lab/diun/
+[Flame]:                  /monitoring_lab/flame/
+[Glances]:                /monitoring_lab/glances/
+[Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
+[Linkding]:               /services_lab/linkding/
+[RssBridge]:              /services_lab/rssbridge/

@@ -25,6 +25,13 @@
 !docker-compose.yml
 
 
+## FRONTEND LAB
+!frontend_lab/
+!frontend_lab/nginx-pm
+!frontend_lab/nginx-pm/conf
+!frontend_lab/nginx-pm/secrets
+
+
 ## MONITORING LAB
 !monitoring_lab/
 # Diun
