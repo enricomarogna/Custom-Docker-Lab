@@ -1,0 +1,41 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  navidrome:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    user: ${PUID}:${PGID} # should be owner of volumes
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+    volumes:
+      - "./conf:/data"
+      - "${PATH_TO_MUSIC_FOLDER}:/music:ro"
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

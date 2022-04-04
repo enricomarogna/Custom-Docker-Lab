@@ -14,6 +14,7 @@
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                  |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato               |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma           |
+| [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali               |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero        |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                        |
@@ -196,6 +197,7 @@ services:
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
 [Glances]:                /monitoring_lab/glances/
+[Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Linkding]:               /services_lab/linkding/
 [RssBridge]:              /services_lab/rssbridge/

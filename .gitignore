@@ -32,6 +32,11 @@
 !frontend_lab/nginx-pm/secrets
 
 
+## MEDIACENTER LAB
+!mediacenter_lab/
+!mediacenter_lab/navidrome
+
+
 ## MONITORING LAB
 !monitoring_lab/
 # Diun
