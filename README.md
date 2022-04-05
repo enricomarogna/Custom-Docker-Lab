@@ -64,7 +64,7 @@ root
     |__ .gitignore
     |
     |__ profile_1
-    |   |__ container_folder/
+    |   |__ container_folder_1/
     |   |   |__ .env
     |   |   |__ README.md
     |   |   |__ docker-compose.yml
@@ -72,16 +72,11 @@ root
     |   |   |   |__ .gitignore
     |   |   |__ secrets_folder/
     |   |       |__ SECRET_NAME.txt
+    |   |       |__ .gitignore
     |   |
     |   |
-    |   |__ container_folder/
-    |       |__ .env
-    |       |__ README.md
-    |       |__ docker-compose.yml
-    |       |__ conf_folder/
-    |   |   |   |__ .gitignore
-    |       |__ secrets_folder/
-    |           |__ SECRET_NAME.txt
+    |   |__ container_folder_2/
+    |       |__ ...
     |
     |-- profile_2
         |__ ...
