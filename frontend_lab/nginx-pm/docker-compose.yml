@@ -11,11 +11,11 @@ networks:
       name: npm_bridge
 
 # SECRETS
-# secrets:
-#   MARIADB_NGINXPM_USER:
-#     file: ./secrets/MARIADB_NGINXPM_USER.txt
-#   MARIADB_NGINXPM_PASSWORD:
-#     file: ./secrets/MARIADB_NGINXPM_PASSWORD.txt
+secrets:
+  MARIADB_NGINXPM_USER:
+    file: ./secrets/MARIADB_NGINXPM_USER.txt
+  MARIADB_NGINXPM_PASSWORD:
+    file: ./secrets/MARIADB_NGINXPM_PASSWORD.txt
 
 # SERVICES
 services:
@@ -29,16 +29,14 @@ services:
       DB_MYSQL_HOST: mariadb
       DB_MYSQL_NAME: nginxpm
       DB_MYSQL_PORT: 3306
-      # DB_MYSQL_USER__FILE: /run/secrets/MARIADB_NGINXPM_USER
-      # DB_MYSQL_PASSWORD__FILE: /run/secrets/MARIADB_NGINXPM_PASSWORD
-      DB_MYSQL_USER: $MARIADB_NGINXPM_USER
-      DB_MYSQL_PASSWORD: $MARIADB_NGINXPM_PASSWORD
+      DB_MYSQL_USER__FILE: /run/secrets/MARIADB_NGINXPM_USER
+      DB_MYSQL_PASSWORD__FILE: /run/secrets/MARIADB_NGINXPM_PASSWORD
     volumes:
       - './conf/data:/data'
       - './conf/letsencrypt:/etc/letsencrypt'
-    # secrets:
-    #   - MARIADB_NGINXPM_USER
-    #   - MARIADB_NGINXPM_PASSWORD
+    secrets:
+      - MARIADB_NGINXPM_USER
+      - MARIADB_NGINXPM_PASSWORD
     labels:
       # Diun
       - "diun.enable=true"

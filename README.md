@@ -156,11 +156,13 @@ Per la creazione del *secret* è necessario seguire i seguenti passi:
 
 - Creazione del file che contiente il segreto 
   ```bash
-  printf "PaSSw0rdSegReta" > ./secrets_folder/SECRET_NAME.txt
+  printf "PaSSw0rdSegReta" > /secrets_folder/SECRET_NAME.txt
   ```
+  *N.B.*: `printf` [non gestisce correttamente](https://www.ibm.com/docs/en/i/7.2?topic=functions-printf-print-formatted-characters) l'inserimento della password se questa contiene il carattere `%`.
+  
 - Creazione del segreto 
   ```bash
-  docker secret create SECRET_NAME ./secrets_folder/SECRET_NAME.txt
+  docker secret create SECRET_NAME /secrets_folder/SECRET_NAME.txt
   ```
 - Assegnazione dell'utente e del gruppo proprietario della *secrets_folder* e dei suoi files 
   ```bash

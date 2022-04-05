@@ -47,36 +47,6 @@ Utente Admin di default
 - Password: `changeme`
 
 
-## SECRETS
-
-La [documentazione ufficiale](https://nginxproxymanager.com/advanced-config/#docker-secrets) conferma la possibilità di utilizzare i *secrets*
-
-"Questa immagine supporta l'uso dei *secrets* Docker per importare da file e impedire che nomi utente o password sensibili vengano passati o conservati in testo normale.
-
-È possibile impostare qualsiasi variabile di ambiente da un file aggiungendo __FILE (*FILE* con doppio underscore) al nome della variabile di ambiente."
-
-
-
-```bash
-services:
-  app:
-    [...]
-    environment:
-      DB_MYSQL_HOST: "db"
-      DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD__FILE: /run/secrets/MYSQL_PWD
-      [...]
-    volumes:
-      [...]
-    secrets:
-      - MYSQL_PWD
-    [..]
-```
-
-**N.B.**: Attualmente non sono riuscito a far funzionare correttamente i secrets per questa immagine quindi inserisco i dati tramite variabile nel fine **.env**
-
-
 ---
 Per maggiori specifiche visitare il repository ufficiale:
 [https://github.com/NginxProxyManager/nginx-proxy-manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
