@@ -71,7 +71,7 @@ root
     |   |   |__ conf_folder/
     |   |   |   |__ .gitignore
     |   |   |__ secrets_folder/
-    |   |       |__ secret_name.txt
+    |   |       |__ SECRET_NAME.txt
     |   |
     |   |
     |   |__ container_folder/
@@ -81,7 +81,7 @@ root
     |       |__ conf_folder/
     |   |   |   |__ .gitignore
     |       |__ secrets_folder/
-    |           |__ secret_name.txt
+    |           |__ SECRET_NAME.txt
     |
     |-- profile_2
         |__ ...
@@ -152,12 +152,20 @@ Per alcuni containers è necessario indicare dati sensibili, come *passwords* op
 Per questo sono stati sviluppati i *secrets*.
 
 #### CREAZIONE DEL SECRET
-Per la creazione del *secret* è necessario, a partire dalla root del container, assegnare i proprietari e i permessi:
-- Assegnazione dell'utente e del gruppo proprietario della *secrets_folder* e dei suoi files `sudo chown -R root:root secrets_folder/`
-- Permessi della *secrets_folder* e dei suoi files `sudo chmod -R 600 secrets_folder/`
-- Creazione del file che contiente il segreto `nano secret_name.txt`
-- Salvare `^O` e uscire `^X`
-- Creazione del segreto `docker secret create secret_name secret_name.txt`
+Per la creazione del *secret* è necessario seguire i seguenti passi:
+
+- Creazione del file che contiente il segreto 
+  ```bash
+  printf "PaSSw0rdSegReta" > ./secrets_folder/SECRET_NAME.txt
+  ```
+- Creazione del segreto 
+  ```bash
+  docker secret create SECRET_NAME ./secrets_folder/SECRET_NAME.txt
+  ```
+- Assegnazione dell'utente e del gruppo proprietario della *secrets_folder* e dei suoi files 
+  ```bash
+  sudo chown -R root:root secrets_folder/ && sudo chmod -R 600 secrets_folder/
+  ```
 
 Dichiararne l'utilizzo in *docker-compose.yml*:
 ```yml
@@ -169,8 +177,8 @@ networks:
 
 # SECRETS
 secrets:
-  container_secret_name:
-  file: ./secrets_folder/secret_name.txt
+  SECRET_NAME:
+  file: ./secrets_folder/SECRET_NAME.txt
 
 # SERVICES
 services:
@@ -184,9 +192,9 @@ services:
   cont_name:
     [...]
     volumes:
-      - VARIABILE_FILE=/run/secrets/container_secret_name
+      - VARIABILE_FILE=/run/secrets/SECRET_NAME
     secrets:
-      - container_secret_name
+      - SECRET_NAME
     [...]
 ```
 
