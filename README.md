@@ -18,6 +18,7 @@
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero        |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                        |
+| [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"         |
 
 
 ---
@@ -201,3 +202,4 @@ services:
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Linkding]:               /services_lab/linkding/
 [RssBridge]:              /services_lab/rssbridge/
+[UptimeKuma]:             /monitoring_lab/uptimekuma/
