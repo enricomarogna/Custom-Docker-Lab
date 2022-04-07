@@ -19,6 +19,7 @@
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero        |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                        |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"         |
+| [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                     |
 
 
 ---
@@ -151,7 +152,7 @@ Per la creazione del *secret* è necessario seguire i seguenti passi:
 
 - Creazione del file che contiente il segreto 
   ```bash
-  printf "PaSSw0rdSegReta" > /secrets_folder/SECRET_NAME.txt
+  printf "PaSSw0rdSegReta" > ./secrets_folder/SECRET_NAME.txt
   ```
   *N.B.*: `printf` [non gestisce correttamente](https://www.ibm.com/docs/en/i/7.2?topic=functions-printf-print-formatted-characters) l'inserimento della password se questa contiene il carattere `%`.
   
@@ -175,7 +176,7 @@ networks:
 # SECRETS
 secrets:
   SECRET_NAME:
-  file: ./secrets_folder/SECRET_NAME.txt
+    file: ./secrets_folder/SECRET_NAME.txt
 
 # SERVICES
 services:
@@ -208,3 +209,4 @@ services:
 [Linkding]:               /services_lab/linkding/
 [RssBridge]:              /services_lab/rssbridge/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
+[Wallabag]:               /services_lab/wallabag/

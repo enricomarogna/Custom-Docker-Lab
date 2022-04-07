@@ -64,3 +64,6 @@
 # Rss Bridge
 !services_lab/rssbridge/
 !services_lab/rssbridge/conf
+# Wallabag
+!services_lab/wallabag/
+!services_lab/wallabag/conf
