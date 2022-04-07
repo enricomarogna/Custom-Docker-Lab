@@ -46,23 +46,23 @@ services:
       - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
       - flame.icon=${CONTAINER_NAME}.svg
     ports:
-      - target: 81 # Admin Web Port
+      - target: ${PORT_INT_GUI} # Admin Web Port
         # published: $PORT_INT_GUI
         protocol: tcp
-      - target: 80 # Public HTTP Port
+      - target: ${PORT_INT_HTTP} # Public HTTP Port
         # published: $PORT_INT_HTTP
         protocol: tcp
-      - target: 443 # Public HTTPS Port
+      - target: ${PORT_INT_HTTPS} # Public HTTPS Port
         # published: $PORT_INT_HTTPS
         protocol: tcp
       ### Add any other Stream port you want to expose
-      - target: 53 # AdGuard
+      - target: ${PORT_INT_AG_TCP} # AdGuard
         # published: PORT_INT_AG_TCP
         protocol: tcp
-      - target: 53 # AdGuard
+      - target: ${PORT_INT_AG_UDP} # AdGuard
         # published: PORT_INT_AG_UDP
         protocol: udp
-      - target: 853 # AdGuard TLS
+      - target: ${PORT_INT_AD_TLS} # AdGuard TLS
         # published: PORT_INT_AD_TLS
         protocol: tcp
     networks:
