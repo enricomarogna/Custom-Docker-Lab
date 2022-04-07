@@ -19,6 +19,10 @@ services:
       ND_LOGLEVEL: info  
       ND_SESSIONTIMEOUT: 24h
       ND_BASEURL: ""
+      ND_SPOTIFY_ID: ${ND_SPOTIFY_ID}
+      ND_SPOTIFY_SECRET: ${ND_SPOTIFY_SECRET}
+      ND_LASTFM_APIKEY: ${ND_LASTFM_APIKEY}
+      ND_LASTFM_SECRET: ${ND_LASTFM_SECRET}
     volumes:
       - "./conf:/data"
       - "${PATH_TO_MUSIC_FOLDER}:/music:ro"
