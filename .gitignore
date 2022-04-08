@@ -49,6 +49,9 @@
 # Glances
 !monitoring_lab/glances
 !monitoring_lab/glances/conf
+# Gotify
+!monitoring_lab/gotify
+!monitoring_lab/gotify/conf
 # Uptime Kuma
 !monitoring_lab/uptimekuma
 !monitoring_lab/uptimekuma/conf

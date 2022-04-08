@@ -15,6 +15,7 @@
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
+| [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
@@ -206,6 +207,7 @@ services:
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
 [Glances]:                /monitoring_lab/glances/
+[Gotify]:                 /monitoring_lab/gotify/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Linkding]:               /services_lab/linkding/
