@@ -1,0 +1,80 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  adguard:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - './conf/work:/opt/adguardhome/work'
+      - './conf/config:/opt/adguardhome/conf'
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT_DNS_TCP:-53}
+        # published: $PORT_PUB_DNS_TCP
+        protocol: tcp
+      - target: ${PORT_INT_DNS_UDP:-53}
+        # published: $PORT_PUB_DNS_UDP
+        protocol: udp
+      - target: ${PORT_INT_DHCP_UDP1:-67}
+        # published: $PORT_PUB_DHCP_UDP1
+        protocol: udp
+      - target: ${PORT_INT_DHCP_TCP:-68}
+        # published: $PORT_PUB_DHCP_TCP
+        protocol: tcp
+      - target: ${PORT_INT_DHCP_UDP2:-68}
+        # published: $PORT_PUB_DHCP_UDP2
+        protocol: udp
+      - target: ${PORT_INT_DOH_HTTP:-80}
+        # published: $PORT_PUB_DOH_HTTP
+        protocol: tcp
+      - target: ${PORT_INT_DOH_HTTPS_TCP:-443}
+        # published: $PORT_INT_DOH_HTTPS_TCP
+        protocol: tcp
+      - target: ${PORT_INT_DOH_HTTPS_UDP:-443}
+        # published: $PORT_PUB_DOH_HTTPS_UDP
+        protocol: udp
+      - target: ${PORT_INT_DOH_SERVICE:-3000}
+        # published: $PORT_PUB_DOH_SERVICE
+        protocol: tcp
+      - target: ${PORT_INT_DOT:-853}
+        # published: $PORT_PUB_DOT
+        protocol: tcp
+      - target: ${PORT_INT_DOQ_UDP1:-784}
+        # published: $PORT_PUB_DOQ_UDP1
+        protocol: udp
+      - target: ${PORT_INT_DOQ_UDP2:-853}
+        # published: $PORT_PUB_DOQ_UDP2
+        protocol: udp
+      - target: ${PORT_INT_DOQ_UDP3:-8853}
+        # published: $PORT_PUB_DOQ_UDP3
+        protocol: udp
+      - target: ${PORT_INT_DNSCRYPT_TCP:-5443}
+        # published: $PORT_PUB_DNSCRYPT_TCP
+        protocol: tcp
+      - target: ${PORT_INT_DNSCRYPT_UDP:-5443}
+        # published: $PORT_PUB_DNSCRYPT_UDP
+        protocol: udp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

@@ -9,17 +9,18 @@
 ---
 ## PANORAMICA
 
-| SERVIZI                 | PROFILO   | DESCRIZIONE                                          |
-|:------------------------|:----------|:-----------------------------------------------------|
-| [Diun][]                |Monitoring | Notificatore aggiornamento immagini                  |
-| [Flame][]               |Monitoring | Startpage leggero con editor integrato               |
-| [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma           |
-| [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali               |
-| [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                |
-| [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero        |
-| [RssBridge][]           |Services   | Generatore di feed RSS e Atom                        |
-| [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"         |
-| [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                     |
+| SERVIZI                 | PROFILO   | DESCRIZIONE                                           |
+|:------------------------|:----------|:------------------------------------------------------|
+| [AdGuard][]             |Services   | Server DNS                                            |
+| [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
+| [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
+| [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
+| [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
+| [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
+| [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
+| [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
+| [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
+| [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
 
 
 ---
@@ -201,6 +202,7 @@ services:
 
 
 
+[AdGuard]:                /services_lab/adguard/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
 [Glances]:                /monitoring_lab/glances/

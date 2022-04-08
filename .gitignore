@@ -58,6 +58,9 @@
 !services_lab/
 # Socket Proxy
 !services_lab/socket_proxy/
+# AdGuard
+!services_lab/adguard/
+!services_lab/adguard/conf/
 # Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/
