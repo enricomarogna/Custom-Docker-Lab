@@ -1,5 +1,0 @@
-FacebookBridge
-WikipediaBridge
-TwitterBridge
-InstagramBridge
-TelegramBridge

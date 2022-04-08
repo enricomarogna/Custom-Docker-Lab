@@ -2,4 +2,5 @@
 *
 # Eccetto questo file
 !.gitignore
-!whitelist.txt
+!whitelist.example.txt
+!config.ini.example.php
