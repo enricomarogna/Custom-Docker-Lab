@@ -19,6 +19,7 @@
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
+| [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
 | [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
@@ -211,6 +212,7 @@ services:
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Linkding]:               /services_lab/linkding/
+[Plex]:                   /mediacenter_lab/plex/
 [RssBridge]:              /services_lab/rssbridge/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Wallabag]:               /services_lab/wallabag/

@@ -27,14 +27,19 @@
 
 ## FRONTEND LAB
 !frontend_lab/
-!frontend_lab/nginx-pm
-!frontend_lab/nginx-pm/conf
-!frontend_lab/nginx-pm/secrets
+!frontend_lab/nginx-pm/
+!frontend_lab/nginx-pm/conf/
+!frontend_lab/nginx-pm/secrets/
 
 
 ## MEDIACENTER LAB
 !mediacenter_lab/
-!mediacenter_lab/navidrome
+# Navidrome
+!mediacenter_lab/navidrome/
+!mediacenter_lab/navidrome/conf/
+# Plex
+!mediacenter_lab/plex/
+!mediacenter_lab/plex/conf/
 
 
 ## MONITORING LAB
@@ -47,14 +52,14 @@
 !monitoring_lab/flame/
 !monitoring_lab/flame/conf/
 # Glances
-!monitoring_lab/glances
-!monitoring_lab/glances/conf
+!monitoring_lab/glances/
+!monitoring_lab/glances/conf/
 # Gotify
-!monitoring_lab/gotify
-!monitoring_lab/gotify/conf
+!monitoring_lab/gotify/
+!monitoring_lab/gotify/conf/
 # Uptime Kuma
-!monitoring_lab/uptimekuma
-!monitoring_lab/uptimekuma/conf
+!monitoring_lab/uptimekuma/
+!monitoring_lab/uptimekuma/conf/
 
 
 ## SERVICES LAB
@@ -69,7 +74,7 @@
 !services_lab/linkding/conf/
 # Rss Bridge
 !services_lab/rssbridge/
-!services_lab/rssbridge/conf
+!services_lab/rssbridge/conf/
 # Wallabag
 !services_lab/wallabag/
-!services_lab/wallabag/conf
+!services_lab/wallabag/conf/

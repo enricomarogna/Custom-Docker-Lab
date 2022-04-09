@@ -1,0 +1,43 @@
+---
+version: "3.7"
+
+# SECRETS
+secrets:
+  PLEX_CLAIM:
+    file: ./secrets/PLEX_CLAIM.txt
+
+# SERVICES
+services:
+  plex:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=docker
+      - PLEX_CLAIM_FILE=/run/secrets/PLEX_CLAIM
+      - ALLOWED_NETWORKS=${HOME_NETWORK}
+    secrets:
+      - PLEX_CLAIM
+    devices:
+      - '/dev/dri:/dev/dri' # transcodifica hardware
+    volumes:
+      - './conf:/config'
+      - '${DIR_MEDIA_AUDIO}:/audio'
+      - '${DIR_MEDIA_VIDEO}/kids:/kids'
+      - '${DIR_MEDIA_VIDEO}/gigs:/gigs'
+      - '${DIR_MEDIA_VIDEO}/anime:/anime'
+      - '${DIR_MEDIA_VIDEO}/movies:/movies'
+      - '${DIR_MEDIA_VIDEO}/tvshows:/tvshows'
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    network_mode: host
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
