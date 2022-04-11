@@ -15,6 +15,7 @@
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
+| [FreshRSS][]            |Services   | Server per la gestione dei feed rss                   |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
@@ -194,7 +195,7 @@ e utilizzarlo all'interno del container, aggiungendo al nome della variabile **_
 services:
   cont_name:
     [...]
-    volumes:
+    environment:
       - VARIABILE_FILE=/run/secrets/SECRET_NAME
     secrets:
       - SECRET_NAME
@@ -210,6 +211,7 @@ services:
 [Baikal]:                 /services_lab/baikal/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
+[FreshRSS]:               /services_lab/freshrss/
 [Glances]:                /monitoring_lab/glances/
 [Gotify]:                 /monitoring_lab/gotify/
 [Navidrome]:              /mediacenter_lab/navidrome/

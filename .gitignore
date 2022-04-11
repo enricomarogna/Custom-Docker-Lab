@@ -76,6 +76,9 @@
 # Baikal
 !services_lab/baikal/
 !services_lab/baikal/conf/
+# FreshRss
+!services_lab/freshrss/
+!services_lab/freshrss/conf/
 # Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/
