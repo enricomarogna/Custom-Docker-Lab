@@ -27,9 +27,13 @@
 
 ## FRONTEND LAB
 !frontend_lab/
+# Nginx Proxy Manager
 !frontend_lab/nginx-pm/
 !frontend_lab/nginx-pm/conf/
 !frontend_lab/nginx-pm/secrets/
+# Organizr
+!frontend_lab/organizr/
+!frontend_lab/organizr/conf/
 
 
 ## MEDIACENTER LAB

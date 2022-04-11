@@ -18,6 +18,7 @@
 | [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
+| [Organizr][]            |Fronted    | Potente statpage e hub                                |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
@@ -211,6 +212,7 @@ services:
 [Gotify]:                 /monitoring_lab/gotify/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
+[Organizr]:               /frontend_lab/organizr/
 [Linkding]:               /services_lab/linkding/
 [Plex]:                   /mediacenter_lab/plex/
 [RssBridge]:              /services_lab/rssbridge/
