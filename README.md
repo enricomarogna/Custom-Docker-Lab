@@ -12,6 +12,7 @@
 | SERVIZI                 | PROFILO   | DESCRIZIONE                                           |
 |:------------------------|:----------|:------------------------------------------------------|
 | [AdGuard][]             |Services   | Server DNS                                            |
+| [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
@@ -206,6 +207,7 @@ services:
 
 
 [AdGuard]:                /services_lab/adguard/
+[Baikal]:                 /services_lab/baikal/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
 [Glances]:                /monitoring_lab/glances/
