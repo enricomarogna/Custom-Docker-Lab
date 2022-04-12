@@ -18,6 +18,7 @@
 | [FreshRSS][]            |Services   | Server per la gestione dei feed rss                   |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
+| [JDownloader][]         |Services   | Potente applicazione per la gestione dei download     |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
 | [Organizr][]            |Fronted    | Potente statpage e hub                                |
@@ -214,6 +215,7 @@ services:
 [FreshRSS]:               /services_lab/freshrss/
 [Glances]:                /monitoring_lab/glances/
 [Gotify]:                 /monitoring_lab/gotify/
+[JDownloader]:            /services_lab/jdownloader/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Organizr]:               /frontend_lab/organizr/

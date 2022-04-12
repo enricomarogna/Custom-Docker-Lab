@@ -79,6 +79,9 @@
 # FreshRss
 !services_lab/freshrss/
 !services_lab/freshrss/conf/
+# JDownloader
+!services_lab/jdownloader/
+!services_lab/jdownloader/conf/
 # Linkding
 !services_lab/linkding/
 !services_lab/linkding/conf/
