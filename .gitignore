@@ -88,6 +88,9 @@
 # Rss Bridge
 !services_lab/rssbridge/
 !services_lab/rssbridge/conf/
+# Syncthing
+!services_lab/syncthing/
+!services_lab/syncthing/conf/
 # Wallabag
 !services_lab/wallabag/
 !services_lab/wallabag/conf/

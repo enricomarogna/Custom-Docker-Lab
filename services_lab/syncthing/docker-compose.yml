@@ -1,0 +1,48 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  syncthing:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ./conf/config:/config
+      - ./conf/data1:/data1
+      - ./conf/data2:/data2
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT_GUI}
+        #published: ${PORT_PUB_GUI}
+        protocol: tcp
+      - target: ${PORT_INT_TCP}
+        #published: ${PORT_PUB_TCP}
+        protocol: tcp
+      - target: ${PORT_INT_UDP}
+        #published: ${PORT_PUB_UDP}
+        protocol: udp
+      - target: ${PORT_INT_DIS}
+        #published: ${PORT_PUB_DIS}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

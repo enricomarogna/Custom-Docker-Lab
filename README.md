@@ -25,6 +25,7 @@
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
+| [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
 | [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
 
@@ -222,5 +223,6 @@ services:
 [Linkding]:               /services_lab/linkding/
 [Plex]:                   /mediacenter_lab/plex/
 [RssBridge]:              /services_lab/rssbridge/
+[Syncthing]:              /services_lab/syncthing/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Wallabag]:               /services_lab/wallabag/
