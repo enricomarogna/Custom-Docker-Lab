@@ -36,6 +36,13 @@
 !frontend_lab/organizr/conf/
 
 
+## INDEXERS LAB
+!indexers_lab/
+# Overseerr
+!indexers_lab/overseerr/
+!indexers_lab/overseerr/conf/
+
+
 ## MEDIACENTER LAB
 !mediacenter_lab/
 # Navidrome

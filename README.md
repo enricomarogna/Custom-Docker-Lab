@@ -22,6 +22,7 @@
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
 | [Organizr][]            |Fronted    | Potente statpage e hub                                |
+| [Overseerr][]           |Indexers   | Ricerca e suggerimenti di contenuti multimediali      |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
@@ -221,6 +222,7 @@ services:
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Organizr]:               /frontend_lab/organizr/
+[Overseerr]:              /indexers_lab/overseerr/
 [Linkding]:               /services_lab/linkding/
 [Plex]:                   /mediacenter_lab/plex/
 [RssBridge]:              /services_lab/rssbridge/
