@@ -44,6 +44,9 @@
 # Plex
 !mediacenter_lab/plex/
 !mediacenter_lab/plex/conf/
+# Ubooquity
+!mediacenter_lab/ubooquity/
+!mediacenter_lab/ubooquity/conf/
 
 
 ## MONITORING LAB

@@ -26,6 +26,7 @@
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
+| [Ubooquity][]           |Mediacenter| Server di lettura/download di ebook della libreria    |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
 | [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
 
@@ -224,5 +225,6 @@ services:
 [Plex]:                   /mediacenter_lab/plex/
 [RssBridge]:              /services_lab/rssbridge/
 [Syncthing]:              /services_lab/syncthing/
+[Ubooquity]:              /mediacenter_lab/ubooquity/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Wallabag]:               /services_lab/wallabag/
