@@ -25,6 +25,7 @@
 | [Overseerr][]           |Indexers   | Ricerca e suggerimenti di contenuti multimediali      |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
+| [Readarr][]             |Indexers   | Gestore e organizzatore di librerie per ebook         |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
 | [Ubooquity][]           |Mediacenter| Server di lettura/download di ebook della libreria    |
@@ -225,6 +226,7 @@ services:
 [Overseerr]:              /indexers_lab/overseerr/
 [Linkding]:               /services_lab/linkding/
 [Plex]:                   /mediacenter_lab/plex/
+[Readarr]:                /indexers_lab/readarr/
 [RssBridge]:              /services_lab/rssbridge/
 [Syncthing]:              /services_lab/syncthing/
 [Ubooquity]:              /mediacenter_lab/ubooquity/

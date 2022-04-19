@@ -24,7 +24,7 @@ services:
       - '/dev/dri:/dev/dri' # transcodifica hardware
     volumes:
       - './conf:/config'
-      - '${DIR_MEDIA_AUDIO}:/audio'
+      - '${DIR_MEDIA_AUDIO}:/audio:ro'
       - '${DIR_MEDIA_VIDEO}/kids:/kids'
       - '${DIR_MEDIA_VIDEO}/gigs:/gigs'
       - '${DIR_MEDIA_VIDEO}/anime:/anime'
