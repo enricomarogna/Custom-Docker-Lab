@@ -1,8 +1,8 @@
 # -----------------------------------------------------------------
 # .gitignore per CUSTOM DOCKER LAB @enricomarogna
-# ver 20220222
+# ver 20220419
 #
-# Per default tutti i files e cartelle vengono ignorate.
+# Per default tutti i files e le cartelle vengono ignorate.
 # È neccessario inserire in whitelist tutti i files/cartelle che si
 # vuole mettere sotto controllo di vesrione
 #
@@ -14,9 +14,10 @@
 #
 # -----------------------------------------------------------------
 
-# ignora qualunque file e cartella
+#### ------- BLACKLIST -------
 *
 */
+
 
 #### ------- WHITELIST -------
 !.gitignore
@@ -24,83 +25,7 @@
 !.env.example
 !docker-compose.yml
 
-
-## FRONTEND LAB
-!frontend_lab/
-# Nginx Proxy Manager
-!frontend_lab/nginx-pm/
-!frontend_lab/nginx-pm/conf/
-!frontend_lab/nginx-pm/secrets/
-# Organizr
-!frontend_lab/organizr/
-!frontend_lab/organizr/conf/
-
-
-## INDEXERS LAB
-!indexers_lab/
-# Overseerr
-!indexers_lab/overseerr/
-!indexers_lab/overseerr/conf/
-
-
-## MEDIACENTER LAB
-!mediacenter_lab/
-# Navidrome
-!mediacenter_lab/navidrome/
-!mediacenter_lab/navidrome/conf/
-# Plex
-!mediacenter_lab/plex/
-!mediacenter_lab/plex/conf/
-# Ubooquity
-!mediacenter_lab/ubooquity/
-!mediacenter_lab/ubooquity/conf/
-
-
-## MONITORING LAB
-!monitoring_lab/
-# Diun
-!monitoring_lab/diun/
-!monitoring_lab/diun/conf/
-!monitoring_lab/diun/secrets/
-# Flame
-!monitoring_lab/flame/
-!monitoring_lab/flame/conf/
-# Glances
-!monitoring_lab/glances/
-!monitoring_lab/glances/conf/
-# Gotify
-!monitoring_lab/gotify/
-!monitoring_lab/gotify/conf/
-# Uptime Kuma
-!monitoring_lab/uptimekuma/
-!monitoring_lab/uptimekuma/conf/
-
-
-## SERVICES LAB
-!services_lab/
-# Socket Proxy
-!services_lab/socket_proxy/
-# AdGuard
-!services_lab/adguard/
-!services_lab/adguard/conf/
-# Baikal
-!services_lab/baikal/
-!services_lab/baikal/conf/
-# FreshRss
-!services_lab/freshrss/
-!services_lab/freshrss/conf/
-# JDownloader
-!services_lab/jdownloader/
-!services_lab/jdownloader/conf/
-# Linkding
-!services_lab/linkding/
-!services_lab/linkding/conf/
-# Rss Bridge
-!services_lab/rssbridge/
-!services_lab/rssbridge/conf/
-# Syncthing
-!services_lab/syncthing/
-!services_lab/syncthing/conf/
-# Wallabag
-!services_lab/wallabag/
-!services_lab/wallabag/conf/
+!*_lab
+!*_lab/*/
+!*_lab/*/conf/
+!*_lab/*/secrets/
