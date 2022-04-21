@@ -25,6 +25,7 @@
 | [Overseerr][]           |Indexers   | Ricerca e suggerimenti di contenuti multimediali      |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
+| [Prowlarr][]            |Indexers   | Server indexer manager/proxy                          |
 | [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
 | [Readarr][]             |Indexers   | Gestore e organizzatore di librerie per ebook         |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
@@ -227,6 +228,7 @@ services:
 [Overseerr]:              /indexers_lab/overseerr/
 [Linkding]:               /services_lab/linkding/
 [Plex]:                   /mediacenter_lab/plex/
+[Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
 [Radarr]:                 /indexers_lab/radarr/
 [RssBridge]:              /services_lab/rssbridge/
