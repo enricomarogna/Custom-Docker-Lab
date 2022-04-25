@@ -15,6 +15,7 @@
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
+| [Flaresolverr][]        |Monitoring | Server proxy per bypassare la protezzione Cloudflare  |
 | [FreshRSS][]            |Services   | Server per la gestione dei feed rss                   |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
@@ -221,6 +222,7 @@ services:
 [Baikal]:                 /services_lab/baikal/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
+[Flaresolverr]:           /indexers_lab/flaresolverr/
 [FreshRSS]:               /services_lab/freshrss/
 [Glances]:                /monitoring_lab/glances/
 [Gotify]:                 /monitoring_lab/gotify/
