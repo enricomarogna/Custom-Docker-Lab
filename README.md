@@ -18,6 +18,7 @@
 | [FreshRSS][]            |Services   | Server per la gestione dei feed rss                   |
 | [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
+| [Jackett][]             |Indexers   | Server indexer manager/proxy                          |
 | [JDownloader][]         |Services   | Potente applicazione per la gestione dei download     |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |

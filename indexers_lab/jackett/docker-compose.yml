@@ -1,0 +1,40 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  jackett:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - AUTO_UPDATE=true
+      # - RUN_OPTS=<run options here>
+    volumes:
+      - ./conf/config:/config
+      - ./conf/data:/data
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
