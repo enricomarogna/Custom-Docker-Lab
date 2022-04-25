@@ -17,6 +17,10 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
+<<<<<<< HEAD
+=======
+      - './conf_folder:/data'
+>>>>>>> 5585e95f1d86d8677aec6b1ef12293c736a6e233
       - ./conf:/config # Configurazioni
       - ${DIR_DOWNLOAD_FOLDER}:/downloads # Downloads
       - ${DIR_MEDIA_MUSIC}:/music # Libreria musciale
