@@ -22,11 +22,12 @@
 | [Jackett][]             |Indexers   | Server indexer manager/proxy                          |
 | [JDownloader][]         |Services   | Potente applicazione per la gestione dei download     |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
-| [Nginx Proxy Manager][] |Fronted    | Reverse Proxy con SSL                                 |
-| [Organizr][]            |Fronted    | Potente statpage e hub                                |
+| [Nginx Proxy Manager][] |Frontend   | Reverse Proxy con SSL                                 |
+| [Organizr][]            |Frontend   | Potente statpage e hub                                |
 | [Overseerr][]           |Indexers   | Ricerca e suggerimenti di contenuti multimediali      |
 | [Lidarr][]              |Indexers   | Gestore e organizzatore di librerie musicali          |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
+| [Portainer][]           |Frontend   | Amministratore container, immagini, volumi e altro    |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [Prowlarr][]            |Indexers   | Server indexer manager/proxy                          |
 | [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
@@ -233,6 +234,7 @@ services:
 [Overseerr]:              /indexers_lab/overseerr/
 [Lidarr]:                 /indexers_lab/lidarr/
 [Linkding]:               /services_lab/linkding/
+[Portainer]:              /frontend_lab/portainer/
 [Plex]:                   /mediacenter_lab/plex/
 [Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
