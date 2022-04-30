@@ -1,0 +1,9 @@
+# Ignora quialsiasi file e cartella all'interno di questa directoy
+*
+*/
+# Eccetto queste cartelle e file
+!.gitignore
+!config/
+!templates/
+!config/*.example.yml
+!templates/*.example.conf

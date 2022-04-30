@@ -12,6 +12,7 @@
 | SERVIZI                 | PROFILO   | DESCRIZIONE                                           |
 |:------------------------|:----------|:------------------------------------------------------|
 | [AdGuard][]             |Services   | Server DNS                                            |
+| [Authelia][]            |Frontend   | Server di autenticazione                              |
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
@@ -220,6 +221,7 @@ services:
 
 
 [AdGuard]:                /services_lab/adguard/
+[Authelia]:               /frontend_lab/authelia/
 [Baikal]:                 /services_lab/baikal/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
@@ -227,6 +229,7 @@ services:
 [FreshRSS]:               /services_lab/freshrss/
 [Glances]:                /monitoring_lab/glances/
 [Gotify]:                 /monitoring_lab/gotify/
+[Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/

@@ -1,0 +1,18 @@
+# yamllint disable rule:line-length
+---
+###############################################################
+#                        Database Utenti                      #
+###############################################################
+
+# Questo file può essere usato nel caso non venga impostato LDAP.
+
+users:
+  il_mio_username: # username per il primo utente, modificabile a piacere
+    displayname: "Mario Rossi" # il nominativo che si vuole visualizzare
+    password: "$argon2id$v=19$m=16,t=2,p=1$dGlqV0dqUXJwT3BrWjk0dw$KO2hUPXGc5gZqyZZacQ+lw" # 'password' generata tramite https://argon2.online/
+    email: la_mia_email@il_mio_provider.com # la propria mail
+    groups: # indicare i gruppi di cui si vuole far parte
+      - admins
+      - dev
+...
+# yamllint enable rule:line-length
