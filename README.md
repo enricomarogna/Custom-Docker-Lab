@@ -39,6 +39,7 @@
 | [Ubooquity][]           |Mediacenter| Server di lettura/download di ebook della libreria    |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
 | [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
+| [Wireguard][]           |Frontend   | Server VPN                                            |
 
 
 ---
@@ -248,3 +249,4 @@ services:
 [Ubooquity]:              /mediacenter_lab/ubooquity/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Wallabag]:               /services_lab/wallabag/
+[Wireguard]:              /frontend_lab/wireguard/

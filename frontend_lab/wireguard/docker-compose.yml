@@ -1,0 +1,45 @@
+---
+version: "3.7"
+
+#NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  wireguard:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - SERVERURL=${SERVERURL} #optional
+      - SERVERPORT=${SERVERPORT} #optional
+      - PEERS=${PEERS} #optional
+      - PEERDNS=${PEERDNS} #optional
+      - INTERNAL_SUBNET=${INTERNAL_SUBNET} #optional
+      - ALLOWEDIPS=${ALLOWEDIPS} #optional
+      - LOG_CONFS=true #optional
+    volumes:
+      - ./conf:/config
+      - /lib/modules:/lib/modules
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: udp
+    sysctls:
+    - net.ipv4.conf.all.src_valid_mark=1
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
