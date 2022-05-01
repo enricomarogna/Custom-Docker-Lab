@@ -1,0 +1,52 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  MARIADB_USERNAME:
+    file: ./secrets//MARIADB_USERNAME.txt
+  MARIADB_PASSWORD:
+    file: ./secrets//MARIADB_PASSWORD.txt
+  MARIADB_ROOT_PASSWORD:
+    file: ./secrets//MARIADB_ROOT_PASSWORD.txt
+
+# SERVICES
+services:
+  mariadb:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      # - UMASK=002
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      # - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
+      - MYSQL_DATABASE=${MARIADB_DB_NAME:-mariarootdb} #optional
+      - MYSQL_USER_FILE=/run/secrets/MARIADB_USERNAME
+      - MYSQL_PASSWORD_FILE=/run/secrets/MARIADB_PASSWORD
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/MARIADB_ROOT_PASSWORD
+    secrets:
+      - MARIADB_USERNAME
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+    volumes:
+      - './conf:/config'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT:-3306}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
