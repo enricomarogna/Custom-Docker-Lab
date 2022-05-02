@@ -14,6 +14,7 @@
 | [AdGuard][]             |Services   | Server DNS                                            |
 | [Authelia][]            |Frontend   | Server di autenticazione                              |
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
+| [Calibre][]             |Services   | Gestore e organizzatore di librerie per ebook         |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
 | [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
 | [Flaresolverr][]        |Monitoring | Server proxy per bypassare la protezzione Cloudflare  |
@@ -225,6 +226,7 @@ services:
 [AdGuard]:                /services_lab/adguard/
 [Authelia]:               /frontend_lab/authelia/
 [Baikal]:                 /services_lab/baikal/
+[Calibre]:                /mediacenter_lab/calibre/
 [Diun]:                   /monitoring_lab/diun/
 [Flame]:                  /monitoring_lab/flame/
 [Flaresolverr]:           /indexers_lab/flaresolverr/

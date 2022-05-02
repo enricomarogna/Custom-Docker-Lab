@@ -1,0 +1,51 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  CALIBRE_PASSWORD:
+    file: ./secrets/CALIBRE_PASSWORD.txt
+
+# SERVICES
+services:
+  calibre:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PASSWORD_FILE=/run/secrets/CALIBRE_PASSWORD
+    volumes:
+      - './conf:/config'
+      - '${CALIBRE_LIBRARY}:/config/Calibre Library'
+    secrets:
+      - CALIBRE_PASSWORD
+    dns:
+      - ${CALIBRE_DNS:-1.1.1.1}
+    labels:
+      - "diun.enable=true"
+      # Flame
+      - flame.type=app
+      - flame.name=${CONTAINER_NAME}
+      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - flame.icon=${CONTAINER_NAME}.svg
+    ports:
+      - target: ${PORT_INT_DESKTOP:-8080}
+        #published: ${PORT_PUB_DESKTOP}
+        protocol: tcp
+      - target: ${PORT_INT_WEBSERVER:-8081}
+        #published: ${PORT_PUB_WEBSERVER}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
