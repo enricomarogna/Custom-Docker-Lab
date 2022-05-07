@@ -24,6 +24,7 @@
 | [Jackett][]             |Indexers   | Server indexer manager/proxy                          |
 | [JDownloader][]         |Services   | Potente applicazione per la gestione dei download     |
 | [Mariadb][]             |Database   | Server database MySQL                                 |
+| [Monica][]              |Services   | Server CRM per contatti personali                     |
 | [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
 | [Nginx Proxy Manager][] |Frontend   | Reverse Proxy con SSL                                 |
 | [Organizr][]            |Frontend   | Potente statpage e hub                                |
@@ -236,6 +237,7 @@ services:
 [Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
 [Mariadb]:                /database_lab/mariadb/
+[Monica]:                 /services_lab/monica/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
 [Organizr]:               /frontend_lab/organizr/
