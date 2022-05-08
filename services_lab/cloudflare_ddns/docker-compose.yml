@@ -1,0 +1,38 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  CLOUDFLARE_DDNS_API_KEY_FILE:
+    file: ./secrets/CLOUDFLARE_DDNS_API_KEY_FILE.txt
+
+# SERVICES
+services:
+  cloudflare_ddns:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - API_KEY_FILE=/run/secrets/CLOUDFLARE_DDNS_API_KEY_FILE
+      - ZONE=${ZONE}
+      - SUBDOMAIN=${SUBDOMAIN:-cfddns}
+      - PROXIED=${PROXIED:-true}
+      - DNS_SERVER=${DNS_SERVER:-1.1.1.1}
+    secrets:
+      - CLOUDFLARE_DDNS_API_KEY_FILE
+    labels:
+      - "diun.enable=true"
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: always
