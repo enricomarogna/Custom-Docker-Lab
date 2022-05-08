@@ -17,6 +17,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - SECURE_CONNECTION=1
+      - DISPLAY_WIDTH=${DISPLAY_WIDTH:-1280}
+      - DISPLAY_HEIGHT=${DISPLAY_HEIGHT:-768}
     volumes:
       - "./conf/config:/config:rw"
       - "${DIR_DOWNLOAD_FOLDER}/_jdownloader:/output:rw"
