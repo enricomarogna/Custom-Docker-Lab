@@ -37,6 +37,7 @@
 | [Prowlarr][]            |Indexers   | Server indexer manager/proxy                          |
 | [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
 | [Readarr][]             |Indexers   | Gestore e organizzatore di librerie per ebook         |
+| [Rotki][]               |Services   | Tracker di criptovalute                               |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [Sonarr][]              |Indexers   | Gestore e organizzatore di librerie per serie tv      |
 | [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
@@ -251,6 +252,7 @@ services:
 [Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
 [Radarr]:                 /indexers_lab/radarr/
+[Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
