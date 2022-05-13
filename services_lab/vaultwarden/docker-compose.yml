@@ -1,0 +1,71 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SECRETS
+secrets:
+  VAULTWARDEN_YUBICO_CLIENT_ID:
+    file: ./secrets/VAULTWARDEN_YUBICO_CLIENT_ID.txt
+  VAULTWARDEN_YUBICO_SECRET_KEY:
+    file: ./secrets/VAULTWARDEN_YUBICO_SECRET_KEY.txt
+  VAULTWARDEN_SMTP_PASSWORD:
+    file: ./secrets/VAULTWARDEN_SMTP_PASSWORD.txt
+  VAULTWARDEN_ADMIN_TOKEN:
+    file: ./secrets/VAULTWARDEN_ADMIN_TOKEN.txt
+
+# SERVICES
+services:
+  vaultwarden:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - DOMAIN=${DOMAIN}${ALTERNATE_BASE:-/vaultwarden}
+      # YUBIKEY
+      #- YUBICO_CLIENT_ID=${YUBICO_CLIENT_ID}
+      - YUBICO_CLIENT_ID_FILE=/run/secrets/VAULTWARDEN_YUBICO_CLIENT_ID
+      - YUBICO_SECRET_KEY_FILE=/run/secrets/VAULTWARDEN_YUBICO_SECRET_KEY
+      # SMTP
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_FROM_NAME=${SMTP_FROM_NAME:-Vaultwarden}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_SSL=${SMTP_SSL:-true}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_SECURITY=${SMTP_SECURITY:-starttls}
+      - SMTP_EXPLICIT_TLS=${SMTP_EXPLICIT_TLS:-false}
+      - SMTP_PASSWORD_FILE=/run/secrets/VAULTWARDEN_SMTP_PASSWORD
+      - SMTP_TIMEOUT=${SMTP_TIMEOUT:-15}
+      # DATABASE
+      - "DATABASE_URL=mysql://${VAULTWARDEN_MARIADB_USER}:${VAULTWARDEN_MARIADB_PASSWORD}@mariadb/vaultwarden" # mysql/mariadb
+      # VARIUOUS
+      - DISABLE_2FA_REMEMBER=${DISABLE_2FA_REMEMBER:-true}
+      - SIGNUPS_ALLOWED=false # Commentare per il primo avvio per permettere la registrazione admin
+      - ADMIN_TOKEN_FILE=/run/secrets/VAULTWARDEN_ADMIN_TOKEN # openssl rand -base64 48
+      - ROCKET_PORT=${ROCKET_PORT:-8080}
+    secrets:
+      - VAULTWARDEN_YUBICO_CLIENT_ID
+      - VAULTWARDEN_YUBICO_SECRET_KEY
+      - VAULTWARDEN_SMTP_PASSWORD
+      - VAULTWARDEN_ADMIN_TOKEN
+    volumes:
+      - './conf:/data'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
