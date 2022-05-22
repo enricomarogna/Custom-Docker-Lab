@@ -1,0 +1,5 @@
+# Ignora quialsiasi file e cartella all'interno di questa directoy
+*
+# Eccetto questo file
+!.gitignore
+!resolv.conf

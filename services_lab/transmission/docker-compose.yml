@@ -1,0 +1,84 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  transmission:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    depends_on:
+      - transmission_proxy
+    links:
+      - transmission_proxy
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "TZ=${TZ}"
+      - "OPENVPN_PROVIDER=${OPENVPN_PROVIDER}"
+      # - OPENVPN_CONFIG=france
+      - "OPENVPN_USERNAME=${OPENVPN_USERNAME}"
+      - "OPENVPN_PASSWORD=${OPENVPN_PASSWORD}"
+      - "OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60"
+      - "LOCAL_NETWORK=${HOME_NETWORK}"
+      - "WEBPROXY_ENABLED=${WEBPROXY_ENABLED:-true}"
+      - "NORDVPN_COUNTRY=${NORDVPN_COUNTRY}"
+      - "NORDVPN_PROTOCOL=${NORDVPN_PROTOCOL}"
+      - "NORDVPN_CATEGORY=${NORDVPN_CATEGORY:-legacy_p2p}"
+      - "PEER_DNS=${PEER_DNS:-false}"
+      - "CREATE_TUN_DEVICE=${CREATE_TUN_DEVICE:-true}"
+      - "HEALTH_CHECK_HOST=${HEALTH_CHECK_HOST:-google.com}"
+      - "TRANSMISSION_WEB_UI=${TRANSMISSION_WEB_UI:-flood-for-transmission}"
+    logging:
+        driver: json-file
+        options:
+          max-size: 10m
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    volumes:
+      - "./conf/resolv.conf:/etc/resolv.conf"
+      - "./conf/data:/data"
+      - "${DIR_MEDIADATA}/downloads:/data/completed"
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP_TRANS}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
+
+
+  transmission_proxy:
+    container_name: ${CONTAINER_NAME_PROXY}
+    image: ${IMG_LINK_PROXY}:${IMG_VERSION_PROXY:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT_PROXY}
+        #published: ${PORT_PUB_PROXY}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP_PROXY}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

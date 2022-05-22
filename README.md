@@ -41,6 +41,7 @@
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [Sonarr][]              |Indexers   | Gestore e organizzatore di librerie per serie tv      |
 | [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
+| [Transmission-OpenVPN][]|Services   | Torrent client                                        |
 | [Ubooquity][]           |Mediacenter| Server di lettura/download di ebook della libreria    |
 | [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
 | [Vaultwarden][]         |Services   | Gestore di password                                   |
@@ -257,6 +258,7 @@ services:
 [RssBridge]:              /services_lab/rssbridge/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
+[Transmission-OpenVPN]:   /services_lab/transmission/
 [Ubooquity]:              /mediacenter_lab/ubooquity/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Vaultwarden]:            /services_lab/vaultwarden/
