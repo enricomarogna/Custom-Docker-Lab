@@ -1,0 +1,6 @@
+# Ignora quialsiasi file e cartella all'interno di questa directoy
+*
+# Eccetto questo file
+!.gitignore
+!postgresql_multiple_databases/
+!postgresql_multiple_databases/dbs_creator.sh

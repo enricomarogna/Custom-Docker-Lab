@@ -33,6 +33,7 @@
 | [Lidarr][]              |Indexers   | Gestore e organizzatore di librerie musicali          |
 | [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
 | [Portainer][]           |Frontend   | Amministratore container, immagini, volumi e altro    |
+| [Postgres][]            |Database   | Server database PostgreSQL                            |
 | [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
 | [Prowlarr][]            |Indexers   | Server indexer manager/proxy                          |
 | [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
@@ -250,6 +251,7 @@ services:
 [Lidarr]:                 /indexers_lab/lidarr/
 [Linkding]:               /services_lab/linkding/
 [Portainer]:              /frontend_lab/portainer/
+[Postgres]:               /database_lab/postgres/
 [Plex]:                   /mediacenter_lab/plex/
 [Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
