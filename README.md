@@ -12,6 +12,7 @@
 | SERVIZI                 | PROFILO   | DESCRIZIONE                                           |
 |:------------------------|:----------|:------------------------------------------------------|
 | [AdGuard][]             |Services   | Server DNS                                            |
+| [Adminer][]             |Database   | Gestionale database                                   |
 | [Authelia][]            |Frontend   | Server di autenticazione                              |
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
 | [Calibre][]             |Services   | Gestore e organizzatore di librerie per ebook         |
@@ -230,6 +231,7 @@ services:
 
 
 [AdGuard]:                /services_lab/adguard/
+[Adminer]:                /database_lab/adminer/
 [Authelia]:               /frontend_lab/authelia/
 [Baikal]:                 /services_lab/baikal/
 [Calibre]:                /mediacenter_lab/calibre/
