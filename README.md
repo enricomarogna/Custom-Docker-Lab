@@ -40,6 +40,7 @@
 | [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
 | [Readarr][]             |Indexers   | Gestore e organizzatore di librerie per ebook         |
 | [Redis][]               |Database   | Server database NoSQL                                 |
+| [Redis Commander][]     |Database   | Gestionale grafivo per redis                          |
 | [Rotki][]               |Services   | Tracker di criptovalute                               |
 | [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
 | [Sonarr][]              |Indexers   | Gestore e organizzatore di librerie per serie tv      |
@@ -260,6 +261,7 @@ services:
 [Readarr]:                /indexers_lab/readarr/
 [Radarr]:                 /indexers_lab/radarr/
 [Redis]:                  /database_lab/redis/
+[Redis Commander]:        /database_lab/rediscommander/       
 [Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
 [Sonarr]:                 /indexers_lab/sonarr/
