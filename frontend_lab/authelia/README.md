@@ -31,6 +31,10 @@ $argon2id$v=19$m=16,t=2,p=1$dGlqV0dqUXJwT3BrWjk0dw$KO2hUPXGc5gZqyZZacQ+lw
 
 Maggiori [info](https://www.authelia.com/docs/configuration/authentication/file.html#passwords)
 
+---
+### LOGO E FAVICON
+Per personalizzare, nella schermata di login, il logo e la favicon caricare all'interno della cartella `/conf/config/asset/` i file `logo.png` e `favicon.ico`.
+
 
 ### FONTI
 [Smarthomebeginner](https://www.smarthomebeginner.com/docker-authelia-tutorial/)

@@ -4,6 +4,8 @@
 # Eccetto queste cartelle e file
 !.gitignore
 !config/
+!config/assets/
+!config/assets/.gitignore
 !templates/
 !config/*.example.yml
 !templates/*.example.conf

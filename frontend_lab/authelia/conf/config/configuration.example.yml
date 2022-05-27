@@ -44,7 +44,7 @@ server:
 
   ## Imposta il percorso su disco per le risorse Authelia.
   ## Utile per consentire l'override di specifici asset statici.
-  # asset_path: /config/assets/
+  asset_path: /config/assets/
 
   ## I buffer di solito devono essere configurati per avere lo stesso valore.
   ## Specifiche su https://www.authelia.com/docs/configuration/server.html

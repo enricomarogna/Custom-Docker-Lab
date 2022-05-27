@@ -45,6 +45,7 @@ services:
       - AUTH_AUTHENTICATION_BACKEND_LDAP_PASSWORD
     volumes:
       - './conf/config:/config'
+      - './conf/config/assets:/config/assets'
       - './secrets:/config/secrets'
     labels:
       - "diun.enable=true"
