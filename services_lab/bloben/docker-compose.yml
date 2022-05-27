@@ -1,0 +1,66 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  bloben:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      # DATABASE
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - NODE_ENV=${NODE_ENV:-production}
+      - DB_HOST=${DB_HOST:-postgres}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_CONNECTION=${DB_CONNECTION:-postgres}
+      - DB_SYNCHRONIZE=${DB_SYNCHRONIZE:-true}
+      - DB_LOGGING=${DB_LOGGING:-false}
+      - DB_ENTITIES=${DB_ENTITIES:-usr/app/api/build/data/entity/*.js}
+      - DB_ENTITIES_DIR=${DB_ENTITIES_DIR:-usr/app/api/build/data/entity}
+      - DB_MIGRATIONS=${DB_MIGRATIONS:-usr/app/api/build/data/migrations/*.js}
+      # GUI
+      - HOST=${HOST:-localhost}
+      - PORT=${PORT:-8081}
+      # SMTP
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_EMAIL=${SMTP_EMAIL}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      # REDIS
+      - REDIS_HOST=${REDIS_HOST:-redis}
+      - REDIS_PORT=${REDIS_PORT:-6379}
+     # VARIE
+      - SESSION_SECRET=${SESSION_SECRET}
+      - OTP_SECRET=${OTP_SECRET}
+      - INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD}
+      - APP_DOMAIN=${APP_DOMAIN}
+      - ENCRYPTION_PASSWORD=${ENCRYPTION_PASSWORD} 
+    volumes:
+      - './conf/logs:/logs'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

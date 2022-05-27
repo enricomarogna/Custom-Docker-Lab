@@ -15,6 +15,7 @@
 | [Adminer][]             |Database   | Gestionale database                                   |
 | [Authelia][]            |Frontend   | Server di autenticazione                              |
 | [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
+| [Bloben][]              |Services   | Client CalDAV e WebDAV                                |
 | [Calibre][]             |Services   | Gestore e organizzatore di librerie per ebook         |
 | [Cloudflare DDNS][]     |Services   | Server DDNS                                           |
 | [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
@@ -236,6 +237,7 @@ services:
 [Adminer]:                /database_lab/adminer/
 [Authelia]:               /frontend_lab/authelia/
 [Baikal]:                 /services_lab/baikal/
+[Bloben]:                 /services_lab/bloben/
 [Calibre]:                /mediacenter_lab/calibre/
 [Cloudflare DDNS]:        /services_lab/cloudflare_ddns/
 [Diun]:                   /monitoring_lab/diun/
