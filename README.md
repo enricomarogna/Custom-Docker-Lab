@@ -8,51 +8,64 @@
 
 ---
 ## PANORAMICA
+| DATABASES               | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [Adminer][]             | -                | Gestionale database                                   |
+| [Mariadb][]             | -                | Server database MySQL                                 |
+| [Postgres][]            | -                | Server database PostgreSQL                            |
+| [Redis][]               | -                | Server database NoSQL                                 |
 
-| SERVIZI                 | PROFILO   | DESCRIZIONE                                           |
-|:------------------------|:----------|:------------------------------------------------------|
-| [AdGuard][]             |Services   | Server DNS                                            |
-| [Adminer][]             |Database   | Gestionale database                                   |
-| [Authelia][]            |Frontend   | Server di autenticazione                              |
-| [Baikal][]              |Services   | Server CalDAV e CarDAV                                |
-| [Bloben][]              |Services   | Client CalDAV e WebDAV                                |
-| [Calibre][]             |Services   | Gestore e organizzatore di librerie per ebook         |
-| [Cloudflare DDNS][]     |Services   | Server DDNS                                           |
-| [Diun][]                |Monitoring | Notificatore aggiornamento immagini                   |
-| [Flame][]               |Monitoring | Startpage leggero con editor integrato                |
-| [Flaresolverr][]        |Monitoring | Server proxy per bypassare la protezzione Cloudflare  |
-| [FreshRSS][]            |Services   | Server per la gestione dei feed rss                   |
-| [Glances][]             |Monitoring | Strumento di monitoraggio multipiattaforma            |
-| [Gotify][]              |Monitoring | Server per la gestione delle notifiche                |
-| [Jackett][]             |Indexers   | Server indexer manager/proxy                          |
-| [JDownloader][]         |Services   | Potente applicazione per la gestione dei download     |
-| [Mariadb][]             |Database   | Server database MySQL                                 |
-| [Monica][]              |Services   | Server CRM per contatti personali                     |
-| [Navidrome][]           |Mediacenter| Server e streamer di raccolte musicali                |
-| [Nginx Proxy Manager][] |Frontend   | Reverse Proxy con SSL                                 |
-| [Organizr][]            |Frontend   | Potente statpage e hub                                |
-| [Overseerr][]           |Indexers   | Ricerca e suggerimenti di contenuti multimediali      |
-| [Lidarr][]              |Indexers   | Gestore e organizzatore di librerie musicali          |
-| [Linkding][]            |Services   | Gestore segnalibri minimale, veloce e leggero         |
-| [Portainer][]           |Frontend   | Amministratore container, immagini, volumi e altro    |
-| [Postgres][]            |Database   | Server database PostgreSQL                            |
-| [Plex][]                |Mediacenter| Server e client per lo stream di file multimediali    |
-| [Prowlarr][]            |Indexers   | Server indexer manager/proxy                          |
-| [Radarr][]              |Indexers   | Gestore e organizzatore di librerie per films         |
-| [Readarr][]             |Indexers   | Gestore e organizzatore di librerie per ebook         |
-| [Redis][]               |Database   | Server database NoSQL                                 |
-| [Redis Commander][]     |Database   | Gestionale grafivo per redis                          |
-| [Rotki][]               |Services   | Tracker di criptovalute                               |
-| [RssBridge][]           |Services   | Generatore di feed RSS e Atom                         |
-| [Sonarr][]              |Indexers   | Gestore e organizzatore di librerie per serie tv      |
-| [Syncthing][]           |Services   | Client/server di sincronizzazione file                |
-| [Transmission-OpenVPN][]|Services   | Torrent client                                        |
-| [Ubooquity][]           |Mediacenter| Server di lettura/download di ebook della libreria    |
-| [UptimeKuma][]          |Monitoring | Monitoraggio self-hosted come "Uptime Robot"          |
-| [Vaultwarden][]         |Services   | Gestore di password                                   |
-| [Wallabag][]            |Services   | Gestore di bookmarks e preferiti                      |
-| [Wireguard][]           |Frontend   | Server VPN                                            |
+| FRONTEND                | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [Authelia][]            | MySQL/Redis      | Server di autenticazione                              |
+| [Nginx Proxy Manager][] | MySQL            | Reverse Proxy con SSL                                 |
+| [Organizr][]            | MySQL            | Potente statpage e hub                                |
+| [Portainer][]           | -                | Amministratore container, immagini, volumi e altro    |
+| [Wireguard][]           | -                | Server VPN                                            |
 
+| INDEXERS                | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [Jackett][]             | -                | Server indexer manager/proxy                          |
+| [Lidarr][]              | -                | Gestore e organizzatore di librerie musicali          |
+| [Overseerr][]           | SQLite           | Ricerca e suggerimenti di contenuti multimediali      |
+| [Prowlarr][]            | -                | Server indexer manager/proxy                          |
+| [Radarr][]              | -                | Gestore e organizzatore di librerie per films         |
+| [Readarr][]             | -                | Gestore e organizzatore di librerie per ebook         |
+| [Redis Commander][]     | -                | Gestionale grafivo per redis                          |
+| [Sonarr][]              | -                | Gestore e organizzatore di librerie per serie tv      |
+
+| MEDIACENTER             | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [Navidrome][]           | -                | Server e streamer di raccolte musicali                |
+| [Plex][]                | -                | Server e client per lo stream di file multimediali    |
+| [Ubooquity][]           | -                | Server di lettura/download di ebook della libreria    |
+
+| MONITORING              | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [Diun][]                | -                | Notificatore aggiornamento immagini                   |
+| [Flame][]               | -                | Startpage leggero con editor integrato                |
+| [Flaresolverr][]        | -                | Server proxy per bypassare la protezzione Cloudflare  |
+| [Glances][]             | -                | Strumento di monitoraggio multipiattaforma            |
+| [Gotify][]              | MySQL            | Server per la gestione delle notifiche                |
+| [UptimeKuma][]          | -                | Monitoraggio self-hosted come "Uptime Robot"          |
+
+| SERVICES                | DATABASE         | DESCRIZIONE                                           |
+|:------------------------|:-----------------|:------------------------------------------------------|
+| [AdGuard][]             | -                | Server DNS                                            |
+| [Baikal][]              | MySQL            | Server CalDAV e CarDAV                                |
+| [Bloben][]              | PostgreSQL/Redis | Client CalDAV e WebDAV                                |
+| [Cloudflare DDNS][]     | -                | Server DDNS                                           |
+| [Calibre][]             | -                | Gestore e organizzatore di librerie per ebook         |
+| [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
+| [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
+| [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
+| [Monica][]              | MySQL            | Server CRM per contatti personali                     |
+| [Rotki][]               | -                | Tracker di criptovalute                               |
+| [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
+| [Syncthing][]           | -                | Client/server di sincronizzazione file                |
+| [Transmission-OpenVPN][]| -                | Torrent client                                        |
+| [Vaultwarden][]         | MySQL            | Gestore di password                                   |
+| [Wallabag][]            | SQLite           | Gestore di bookmarks e preferiti                      |
 
 ---
 ## RETE
@@ -274,3 +287,18 @@ services:
 [Vaultwarden]:            /services_lab/vaultwarden/
 [Wallabag]:               /services_lab/wallabag/
 [Wireguard]:              /frontend_lab/wireguard/
+
+<style>
+    table {
+        width: 100%;
+    }
+    table th:first-of-type {
+      width: 20%;
+    }
+    table th:nth-of-type(2) {
+    width: 20%;
+    }
+    table th:nth-of-type(3) {
+        width: 60%;
+    }
+</style>
