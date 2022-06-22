@@ -19,7 +19,8 @@ services:
     volumes:
       - ./conf:/config # Configurazioni
       - ${DIR_DOWNLOAD_FOLDER}:/downloads # Downloads
-      - ${DIR_MEDIA_MOVIES}:/movies # Libreria
+      - ${DIR_MEDIA_MOVIES}:/movies # Libreria 1
+      - ${DIR_MEDIA_KIDS}:/kids # Libreria 2
     labels:
       - "diun.enable=true"
       # Flame
