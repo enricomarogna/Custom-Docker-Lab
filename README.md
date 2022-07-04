@@ -33,6 +33,7 @@
 | [Readarr][]             | -                | Gestore e organizzatore di librerie per ebook         |
 | [Redis Commander][]     | -                | Gestionale grafivo per redis                          |
 | [Sonarr][]              | -                | Gestore e organizzatore di librerie per serie tv      |
+| [Tautulli][]            | -                | Monitoraggio e statistiche per Plex Media Server      |
 
 | MEDIACENTER             | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
@@ -281,6 +282,7 @@ services:
 [RssBridge]:              /services_lab/rssbridge/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
+[Tautulli]:               /indexers_lab/tautulli/
 [Transmission-OpenVPN]:   /services_lab/transmission/
 [Ubooquity]:              /mediacenter_lab/ubooquity/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
