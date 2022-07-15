@@ -289,4 +289,3 @@ services:
 [Vaultwarden]:            /services_lab/vaultwarden/
 [Wallabag]:               /services_lab/wallabag/
 [Wireguard]:              /frontend_lab/wireguard/
-

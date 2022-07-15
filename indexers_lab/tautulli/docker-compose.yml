@@ -18,6 +18,7 @@ services:
       - TZ=${TZ}
     volumes:
       - './conf:/data'
+      - '${PLEX_LOGS}:/logs:ro'
     labels:
       - "diun.enable=true"
     ports:
