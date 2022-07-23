@@ -42,11 +42,12 @@ services:
           max-size: 10m
     dns:
       - 1.1.1.1
-      - 8.8.8.8
+      # - 8.8.8.8
     volumes:
       - "./conf/resolv.conf:/etc/resolv.conf"
       - "./conf/data:/data"
-      - "${DIR_MEDIADATA}/downloads:/data/completed"
+      - "${DIR_MEDIADATA}/completed:/data/completed"
+      - "${DIR_MEDIADATA}/incomplete:/data/incomplete"
     labels:
       - "diun.enable=true"
     ports:
