@@ -38,6 +38,7 @@
 | MEDIACENTER             | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Navidrome][]           | -                | Server e streamer di raccolte musicali                |
+| [Jellyfin][]            | -                | Server e client per lo stream di file multimediali    |
 | [Plex][]                | -                | Server e client per lo stream di file multimediali    |
 | [Ubooquity][]           | -                | Server di lettura/download di ebook della libreria    |
 
@@ -262,6 +263,7 @@ services:
 [Gotify]:                 /monitoring_lab/gotify/
 [Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
+[Jellyfin]:               /mediacenter_lab/jellyfin/
 [Mariadb]:                /database_lab/mariadb/
 [Monica]:                 /services_lab/monica/
 [Navidrome]:              /mediacenter_lab/navidrome/
