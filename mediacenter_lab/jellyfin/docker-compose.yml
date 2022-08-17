@@ -21,11 +21,11 @@ services:
       - --device=/dev/dri:/dev/dri
     volumes:
       - ./conf/library:/config
-      - ${DIR_MEDIA_VIDEO}/movies:/data/movies:ro
-      - ${DIR_MEDIA_VIDEO}/tvshows:/data/tvshows:ro
-      - ${DIR_MEDIA_VIDEO}/kids:/data/kids:ro
-      - ${DIR_MEDIA_VIDEO}/anime:/data/anime:ro
-      - ${DIR_MEDIA_VIDEO}/gigs:/data/gigs:ro
+      - ${DIR_MEDIA_VIDEO}/movies:/data/movies
+      - ${DIR_MEDIA_VIDEO}/tvshows:/data/tvshows
+      - ${DIR_MEDIA_VIDEO}/kids:/data/kids
+      - ${DIR_MEDIA_VIDEO}/anime:/data/anime
+      - ${DIR_MEDIA_VIDEO}/gigs:/data/gigs
     labels:
       - "diun.enable=true"
     ports:
