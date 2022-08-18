@@ -5,4 +5,4 @@
 
 ---
 Per maggiori specifiche visitare il repository ufficiale:
-[[LINK](https://docs.linuxserver.io/images/docker-jellyfin)]([#](https://docs.linuxserver.io/images/docker-jellyfin))
+[https://docs.linuxserver.io/images/docker-jellyfin](https://docs.linuxserver.io/images/docker-jellyfin)
