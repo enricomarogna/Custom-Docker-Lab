@@ -60,6 +60,7 @@
 | [Calibre][]             | -                | Gestore e organizzatore di librerie per ebook         |
 | [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
 | [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
+| [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
 | [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
 | [Monica][]              | MySQL            | Server CRM per contatti personali                     |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
@@ -264,6 +265,7 @@ services:
 [Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
 [Jellyfin]:               /mediacenter_lab/jellyfin/
+[kimai]:                  /services_lab/kimai/
 [Mariadb]:                /database_lab/mariadb/
 [Monica]:                 /services_lab/monica/
 [Navidrome]:              /mediacenter_lab/navidrome/
