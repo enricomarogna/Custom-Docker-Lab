@@ -23,6 +23,7 @@ services:
       - TRUSTED_HOSTS=${TRUSTED_HOSTS:-nginx,localhost,127.0.0.1}
     volumes:
       - ./conf/public:/opt/kimai/public
+      - ./conf/plugins:/var/plugins
     labels:
       - "diun.enable=true"
     ports:
