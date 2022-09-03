@@ -24,18 +24,14 @@ services:
       - "${DIR_DOWNLOAD_FOLDER}/_jdownloader:/output:rw"
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
-    ports:
-      - target: ${PORT_INT}
-        #published: ${PORT_PUB}
-        protocol: tcp
-    networks:
-      npm_proxy:
-        ipv4_address: ${IP}
+    network_mode: container:nordvpn
+    # ports:
+    #   - target: ${PORT_INT}
+    #     #published: ${PORT_PUB}
+    #     protocol: tcp
+    # networks:
+    #   npm_proxy:
+    #     ipv4_address: ${IP}
     profiles:
       - ${PROFILE}
     restart: unless-stopped
