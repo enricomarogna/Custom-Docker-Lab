@@ -39,6 +39,7 @@
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Navidrome][]           | -                | Server e streamer di raccolte musicali                |
 | [Jellyfin][]            | -                | Server e client per lo stream di file multimediali    |
+| [Jellyseerr][]          | SQLite           | Ricerca e suggerimenti di contenuti multimediali      |
 | [Plex][]                | -                | Server e client per lo stream di file multimediali    |
 | [Ubooquity][]           | -                | Server di lettura/download di ebook della libreria    |
 
