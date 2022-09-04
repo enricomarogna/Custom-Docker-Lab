@@ -64,6 +64,7 @@
 | [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
 | [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
 | [Monica][]              | MySQL            | Server CRM per contatti personali                     |
+| [NordVPN][]             | -                | Client VPN per accesso sicuro ad internet             |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
 | [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
 | [Syncthing][]           | -                | Client/server di sincronizzazione file                |
@@ -266,11 +267,13 @@ services:
 [Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
 [Jellyfin]:               /mediacenter_lab/jellyfin/
+[Jellyseerr]:             /indexers_lab/jellyseerr/
 [kimai]:                  /services_lab/kimai/
 [Mariadb]:                /database_lab/mariadb/
 [Monica]:                 /services_lab/monica/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
+[NordVPN]:                /services_lab/nordvpn/
 [Organizr]:               /frontend_lab/organizr/
 [Overseerr]:              /indexers_lab/overseerr/
 [Lidarr]:                 /indexers_lab/lidarr/
