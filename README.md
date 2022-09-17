@@ -46,6 +46,7 @@
 | MONITORING              | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Diun][]                | -                | Notificatore aggiornamento immagini                   |
+| [Dozzle][]              | -                | Monitor logs per container docker                     |
 | [Flame][]               | -                | Startpage leggero con editor integrato                |
 | [Flaresolverr][]        | -                | Server proxy per bypassare la protezzione Cloudflare  |
 | [Glances][]             | -                | Strumento di monitoraggio multipiattaforma            |
@@ -259,6 +260,7 @@ services:
 [Calibre]:                /mediacenter_lab/calibre/
 [Cloudflare DDNS]:        /services_lab/cloudflare_ddns/
 [Diun]:                   /monitoring_lab/diun/
+[Dozzle]:                 /monitoring_lab/dozzle/
 [Flame]:                  /monitoring_lab/flame/
 [Flaresolverr]:           /indexers_lab/flaresolverr/
 [FreshRSS]:               /services_lab/freshrss/
