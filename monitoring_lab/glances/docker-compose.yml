@@ -13,23 +13,17 @@ services:
     container_name: ${CONTAINER_NAME}
     image: ${IMG_LINK}:${IMG_VERSION:-latest}
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      #- DOCKER_HOST=tcp://socket_proxy:2375
-      - GLANCES_OPT=-w
+      GLANCES_OPT: "-C /glances/conf/glances.conf -w"
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      DOCKER_HOST: tcp://socket_proxy:2375
     #pid: host
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf/glances.conf:/glances/conf/glances.conf'
     labels:
       # Diun
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT_HTTP}
         #published: ${PORT_PUB_HTTP}
