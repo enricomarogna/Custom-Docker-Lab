@@ -68,6 +68,7 @@
 | [NordVPN][]             | -                | Client VPN per accesso sicuro ad internet             |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
 | [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
+| [Socket Proxy][]        | -                | Proxy per il socket docket                            |
 | [Syncthing][]           | -                | Client/server di sincronizzazione file                |
 | [Transmission-OpenVPN][]| -                | Torrent client                                        |
 | [Vaultwarden][]         | MySQL            | Gestore di password                                   |
@@ -290,6 +291,7 @@ services:
 [Redis Commander]:        /database_lab/rediscommander/       
 [Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
+[Socket Proxy]:           /services_lab/socket_proxy/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
 [Tautulli]:               /indexers_lab/tautulli/
