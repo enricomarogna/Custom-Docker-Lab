@@ -18,14 +18,10 @@ services:
       - TZ=${TZ}
     volumes:
       - './conf/work:/opt/adguardhome/work'
+      - '${CERT_PATH}:/opt/adguardhome/conf/ssl:ro'
       - './conf/config:/opt/adguardhome/conf'
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT_DNS_TCP:-53}
         # published: $PORT_PUB_DNS_TCP

@@ -6,6 +6,18 @@ Funziona come un server DNS che reindirizza i domini di tracciamento a un "buco 
 
 Si rimanda alla [guida completa](https://github.com/AdguardTeam/AdGuardHome/wiki/Getting-Started).
 
+### CERTIFICATI
+Tramite il binding del volume relativo alla variabile `CERT_PATH` vengono resi disponibili nel container i certificati generati automaticamente da **Nginx Proxy Manager** tramite Cloudflare.
+Generalmente la cartella si trova dentro `nginx-pm/conf/letsencrypt/archive/`.
+In questo modo è sufficiente inserire il percorso del certificato nelle *Impostazioni di Critografia*, ad esempio:
+```
+/opt/adguardhome/conf/ssl/fullchain.pem
+```
+e
+```
+/opt/adguardhome/conf/ssl/privkey.pem
+```
+
 
 ---
 Per maggiori specifiche visitare il repository ufficiale:
