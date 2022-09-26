@@ -1,0 +1,44 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  protonvpn:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      # Credentials
+      - PROTONVPN_USERNAME=${PROTONVPN_USERNAME}
+      - PROTONVPN_PASSWORD=${PROTONVPN_PASSWORD}
+      # Override these where applicable
+      - PROTONVPN_SERVER=${PROTONVPN_SERVER:-P2P}
+      - PROTONVPN_TIER=${PROTONVPN_TIER:-0}
+      - PROTONVPN_PROTOCOL=${PROTONVPN_PROTOCOL:-udp}
+      - PROTONVPN_EXCLUDE_CIDRS=${PROTONVPN_EXCLUDE_CIDRS}
+      - PROTONVPN_DNS_LEAK_PROTECT=${PROTONVPN_DNS_LEAK_PROTECT:-0}
+      - PROTONVPN_CHECK_INTERVAL=${PROTONVPN_CHECK_INTERVAL:-90}
+      - PROTONVPN_IPCHECK_ENDPOINT=${PROTONVPN_IPCHECK_ENDPOINT:-https://icanhazip.com/}
+      - PROTONVPN_FAIL_THRESHOLD=${PROTONVPN_FAIL_THRESHOLD:-3}
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    expose:
+      - ${PORT_CLIENT_1}
+    labels:
+      - "diun.enable=true"
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

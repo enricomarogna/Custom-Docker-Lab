@@ -66,6 +66,7 @@
 | [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
 | [Monica][]              | MySQL            | Server CRM per contatti personali                     |
 | [NordVPN][]             | -                | Client VPN per accesso sicuro ad internet             |
+| [ProtonVPN][]           | -                | Client VPN per accesso sicuro ad internet             |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
 | [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
 | [Socket Proxy][]        | -                | Proxy per il socket docket                            |
@@ -284,6 +285,7 @@ services:
 [Portainer]:              /frontend_lab/portainer/
 [Postgres]:               /database_lab/postgres/
 [Plex]:                   /mediacenter_lab/plex/
+[ProtonVPN]:              /services_lab/protonvpn/
 [Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
 [Radarr]:                 /indexers_lab/radarr/
