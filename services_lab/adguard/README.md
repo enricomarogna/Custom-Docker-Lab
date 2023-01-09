@@ -18,6 +18,12 @@ e
 /opt/adguardhome/conf/ssl/privkey.pem
 ```
 
+### ACCESSO AL CONTAINER
+Per accedere al container:
+```bash
+docker exec -it adguard /bin/sh
+```
+
 
 ---
 Per maggiori specifiche visitare il repository ufficiale:
