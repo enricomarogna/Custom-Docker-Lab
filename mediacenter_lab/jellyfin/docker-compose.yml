@@ -27,6 +27,9 @@ services:
       - ${DIR_MEDIA_VIDEO}/kids:/data/kids
       - ${DIR_MEDIA_VIDEO}/anime:/data/anime
       - ${DIR_MEDIA_VIDEO}/gigs:/data/gigs
+      - ${DIR_MEDIA_VIDEO}/privati:/data/privati
+    devices:
+      - /dev/dri:/dev/dri # Acceleration Hardware
     labels:
       - "diun.enable=true"
     ports:
