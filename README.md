@@ -78,6 +78,7 @@
 | [Transmission-OpenVPN][]| -                | Torrent client                                        |
 | [Vaultwarden][]         | MySQL            | Gestore di password                                   |
 | [Wallabag][]            | SQLite           | Gestore di bookmarks e preferiti                      |
+| [WikiJS][]              | MySQL            | Wiki moderno e leggero, scritto in NodeJS             |
 
 ---
 ## RETE
