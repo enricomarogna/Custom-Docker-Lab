@@ -70,6 +70,7 @@
 | [ProtonVPN][]           | -                | Client VPN per accesso sicuro ad internet             |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
 | [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
+| [Snipe-it][]            | MySQL            | Gestore di asset informatici                          |
 | [Socket Proxy][]        | -                | Proxy per il socket docket                            |
 | [Syncthing][]           | -                | Client/server di sincronizzazione file                |
 | [Transmission-OpenVPN][]| -                | Torrent client                                        |
@@ -295,6 +296,7 @@ services:
 [Redis Commander]:        /database_lab/rediscommander/       
 [Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
+[Snipe-it]:               /services/snipeit/
 [Socket Proxy]:           /services_lab/socket_proxy/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
