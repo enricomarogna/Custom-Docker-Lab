@@ -61,6 +61,7 @@
 | [Bloben][]              | PostgreSQL/Redis | Client CalDAV e WebDAV                                |
 | [Cloudflare DDNS][]     | -                | Server DDNS                                           |
 | [Calibre][]             | -                | Gestore e organizzatore di librerie per ebook         |
+| [Dokuwiki][]            | -                | Framework wiki senza database                         |
 | [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
 | [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
 | [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
@@ -265,6 +266,7 @@ services:
 [Calibre]:                /mediacenter_lab/calibre/
 [Cloudflare DDNS]:        /services_lab/cloudflare_ddns/
 [Diun]:                   /monitoring_lab/diun/
+[Dokuwiki]:               /services/dokuwiki
 [Dozzle]:                 /monitoring_lab/dozzle/
 [Flame]:                  /monitoring_lab/flame/
 [Flaresolverr]:           /indexers_lab/flaresolverr/

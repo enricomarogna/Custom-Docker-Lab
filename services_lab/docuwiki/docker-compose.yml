@@ -1,0 +1,35 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  dokuwiki:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - './conf/config:/config'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT_HTTP:-80}
+        #published: ${PORT_PUB_HTTP}
+        protocol: tcp
+      - target: ${PORT_INT_HTTPS:-443}
+        #published: ${PORT_PUB_HTTPS}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
