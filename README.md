@@ -18,6 +18,7 @@
 | FRONTEND                | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Authelia][]            | MySQL/Redis      | Server di autenticazione                              |
+| [GoAccess][]            | -                | Monitor grafico per i logs di Nginx Proxy manager     |
 | [Nginx Proxy Manager][] | MySQL            | Reverse Proxy con SSL                                 |
 | [Organizr][]            | MySQL            | Potente statpage e hub                                |
 | [Portainer][]           | -                | Amministratore container, immagini, volumi e altro    |
@@ -48,7 +49,7 @@
 | [Diun][]                | -                | Notificatore aggiornamento immagini                   |
 | [Dozzle][]              | -                | Monitor logs per container docker                     |
 | [Flame][]               | -                | Startpage leggero con editor integrato                |
-| [Flaresolverr][]        | -                | Server proxy per bypassare la protezzione Cloudflare  |
+| [Flaresolverr][]        | -                | Server proxy per bypassare la protezione Cloudflare  |
 | [Glances][]             | -                | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              | MySQL            | Server per la gestione delle notifiche                |
 | [UptimeKuma][]          | -                | Monitoraggio self-hosted come "Uptime Robot"          |
