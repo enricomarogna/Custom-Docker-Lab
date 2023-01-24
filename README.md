@@ -62,6 +62,7 @@
 | [Cloudflare DDNS][]     | -                | Server DDNS                                           |
 | [Calibre][]             | -                | Gestore e organizzatore di librerie per ebook         |
 | [Dokuwiki][]            | -                | Framework wiki senza database                         |
+| [Elasticsearch][]       | -                | Motore di ricerca distribuito, ideale per big data    |
 | [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
 | [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
 | [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
@@ -267,8 +268,9 @@ services:
 [Calibre]:                /mediacenter_lab/calibre/
 [Cloudflare DDNS]:        /services_lab/cloudflare_ddns/
 [Diun]:                   /monitoring_lab/diun/
-[Dokuwiki]:               /services/dokuwiki
+[Dokuwiki]:               /services_lab/dokuwiki
 [Dozzle]:                 /monitoring_lab/dozzle/
+[Elasticsearch]:          /services_lab/elasticsearch
 [Flame]:                  /monitoring_lab/flame/
 [Flaresolverr]:           /indexers_lab/flaresolverr/
 [FreshRSS]:               /services_lab/freshrss/
@@ -300,7 +302,7 @@ services:
 [Redis Commander]:        /database_lab/rediscommander/       
 [Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
-[Snipe-it]:               /services/snipeit/
+[Snipe-it]:               /services_lab/snipeit/
 [Socket Proxy]:           /services_lab/socket_proxy/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
