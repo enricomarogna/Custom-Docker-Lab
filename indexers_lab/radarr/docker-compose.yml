@@ -19,14 +19,11 @@ services:
     volumes:
       - ./conf:/config # Configurazioni
       - ${DIR_DOWNLOAD_FOLDER}:/downloads # Downloads
-      - ${DIR_MEDIA_MOVIES}:/movies # Libreria
+      - ${DIR_MEDIA}/movies:/movies # Libreria 1
+      - ${DIR_MEDIA}/kids:/kids # Libreria 2
+      - ${DIR_MEDIA}/gigs:/gigs # Libreria 3
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT}
         #published: ${PORT_PUB}

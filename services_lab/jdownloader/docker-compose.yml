@@ -1,11 +1,10 @@
 ---
 version: "3.7"
 
-# NETWORKS
-networks:
-  npm_proxy:
-    external:
-      name: npm_proxy
+### JDownloader viene servito dalla rete VPN del container di NORDPVN,
+### quindi non necessita della configurazione della rete e delle porte.
+### È sufficiente aprire la porta 5800 sul container della VPN
+### e accedere su protonvpn:5800
 
 # SERVICES
 services:
@@ -24,18 +23,8 @@ services:
       - "${DIR_DOWNLOAD_FOLDER}/_jdownloader:/output:rw"
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
-    ports:
-      - target: ${PORT_INT}
-        #published: ${PORT_PUB}
-        protocol: tcp
-    networks:
-      npm_proxy:
-        ipv4_address: ${IP}
+    #network_mode: container:nordvpn
+    network_mode: container:protonvpn
     profiles:
       - ${PROFILE}
     restart: unless-stopped

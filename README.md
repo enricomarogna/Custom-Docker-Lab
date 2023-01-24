@@ -18,6 +18,7 @@
 | FRONTEND                | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Authelia][]            | MySQL/Redis      | Server di autenticazione                              |
+| [GoAccess][]            | -                | Monitor grafico per i logs di Nginx Proxy manager     |
 | [Nginx Proxy Manager][] | MySQL            | Reverse Proxy con SSL                                 |
 | [Organizr][]            | MySQL            | Potente statpage e hub                                |
 | [Portainer][]           | -                | Amministratore container, immagini, volumi e altro    |
@@ -33,18 +34,22 @@
 | [Readarr][]             | -                | Gestore e organizzatore di librerie per ebook         |
 | [Redis Commander][]     | -                | Gestionale grafivo per redis                          |
 | [Sonarr][]              | -                | Gestore e organizzatore di librerie per serie tv      |
+| [Tautulli][]            | -                | Monitoraggio e statistiche per Plex Media Server      |
 
 | MEDIACENTER             | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Navidrome][]           | -                | Server e streamer di raccolte musicali                |
+| [Jellyfin][]            | -                | Server e client per lo stream di file multimediali    |
+| [Jellyseerr][]          | SQLite           | Ricerca e suggerimenti di contenuti multimediali      |
 | [Plex][]                | -                | Server e client per lo stream di file multimediali    |
 | [Ubooquity][]           | -                | Server di lettura/download di ebook della libreria    |
 
 | MONITORING              | DATABASE         | DESCRIZIONE                                           |
 |:------------------------|:-----------------|:------------------------------------------------------|
 | [Diun][]                | -                | Notificatore aggiornamento immagini                   |
+| [Dozzle][]              | -                | Monitor logs per container docker                     |
 | [Flame][]               | -                | Startpage leggero con editor integrato                |
-| [Flaresolverr][]        | -                | Server proxy per bypassare la protezzione Cloudflare  |
+| [Flaresolverr][]        | -                | Server proxy per bypassare la protezione Cloudflare  |
 | [Glances][]             | -                | Strumento di monitoraggio multipiattaforma            |
 | [Gotify][]              | MySQL            | Server per la gestione delle notifiche                |
 | [UptimeKuma][]          | -                | Monitoraggio self-hosted come "Uptime Robot"          |
@@ -56,16 +61,25 @@
 | [Bloben][]              | PostgreSQL/Redis | Client CalDAV e WebDAV                                |
 | [Cloudflare DDNS][]     | -                | Server DDNS                                           |
 | [Calibre][]             | -                | Gestore e organizzatore di librerie per ebook         |
+| [Dokuwiki][]            | -                | Framework wiki senza database                         |
+| [Elasticsearch][]       | -                | Motore di ricerca distribuito, ideale per big data    |
 | [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
 | [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
+| [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
 | [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
 | [Monica][]              | MySQL            | Server CRM per contatti personali                     |
+| [NordVPN][]             | -                | Client VPN per accesso sicuro ad internet             |
+| [Planka][]              | PostegreSQL      | Scheda kanban simile a Trello                         |
+| [ProtonVPN][]           | -                | Client VPN per accesso sicuro ad internet             |
 | [Rotki][]               | -                | Tracker di criptovalute                               |
 | [RssBridge][]           | -                | Generatore di feed RSS e Atom                         |
+| [Snipe-it][]            | MySQL            | Gestore di asset informatici                          |
+| [Socket Proxy][]        | -                | Proxy per il socket docket                            |
 | [Syncthing][]           | -                | Client/server di sincronizzazione file                |
 | [Transmission-OpenVPN][]| -                | Torrent client                                        |
 | [Vaultwarden][]         | MySQL            | Gestore di password                                   |
 | [Wallabag][]            | SQLite           | Gestore di bookmarks e preferiti                      |
+| [WikiJS][]              | MySQL            | Wiki moderno e leggero, scritto in NodeJS             |
 
 ---
 ## RETE
@@ -254,6 +268,9 @@ services:
 [Calibre]:                /mediacenter_lab/calibre/
 [Cloudflare DDNS]:        /services_lab/cloudflare_ddns/
 [Diun]:                   /monitoring_lab/diun/
+[Dokuwiki]:               /services_lab/dokuwiki
+[Dozzle]:                 /monitoring_lab/dozzle/
+[Elasticsearch]:          /services_lab/elasticsearch
 [Flame]:                  /monitoring_lab/flame/
 [Flaresolverr]:           /indexers_lab/flaresolverr/
 [FreshRSS]:               /services_lab/freshrss/
@@ -261,17 +278,23 @@ services:
 [Gotify]:                 /monitoring_lab/gotify/
 [Jackett]:                /indexers_lab/jackett/
 [JDownloader]:            /services_lab/jdownloader/
+[Jellyfin]:               /mediacenter_lab/jellyfin/
+[Jellyseerr]:             /indexers_lab/jellyseerr/
+[kimai]:                  /services_lab/kimai/
 [Mariadb]:                /database_lab/mariadb/
 [Monica]:                 /services_lab/monica/
 [Navidrome]:              /mediacenter_lab/navidrome/
 [Nginx Proxy Manager]:    /frontend_lab/nginx-pm/
+[NordVPN]:                /services_lab/nordvpn/
 [Organizr]:               /frontend_lab/organizr/
 [Overseerr]:              /indexers_lab/overseerr/
 [Lidarr]:                 /indexers_lab/lidarr/
 [Linkding]:               /services_lab/linkding/
 [Portainer]:              /frontend_lab/portainer/
 [Postgres]:               /database_lab/postgres/
+[Planka]:                 /services_lab/planka/
 [Plex]:                   /mediacenter_lab/plex/
+[ProtonVPN]:              /services_lab/protonvpn/
 [Prowlarr]:               /indexers_lab/prowlarr/
 [Readarr]:                /indexers_lab/readarr/
 [Radarr]:                 /indexers_lab/radarr/
@@ -279,12 +302,14 @@ services:
 [Redis Commander]:        /database_lab/rediscommander/       
 [Rotki]:                  /services_lab/rotki/
 [RssBridge]:              /services_lab/rssbridge/
+[Snipe-it]:               /services_lab/snipeit/
+[Socket Proxy]:           /services_lab/socket_proxy/
 [Sonarr]:                 /indexers_lab/sonarr/
 [Syncthing]:              /services_lab/syncthing/
+[Tautulli]:               /indexers_lab/tautulli/
 [Transmission-OpenVPN]:   /services_lab/transmission/
 [Ubooquity]:              /mediacenter_lab/ubooquity/
 [UptimeKuma]:             /monitoring_lab/uptimekuma/
 [Vaultwarden]:            /services_lab/vaultwarden/
 [Wallabag]:               /services_lab/wallabag/
 [Wireguard]:              /frontend_lab/wireguard/
-

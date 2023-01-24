@@ -22,9 +22,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - PASSWORD_FILE=/run/secrets/password # BUG https://github.com/pawelmalak/flame/issues/275
-      #- DOCKER_HOST=tcp://socket_proxy:2375
+      - DOCKER_HOST=tcp://socket_proxy:2375
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf:/app/data'
     secrets:
       - password

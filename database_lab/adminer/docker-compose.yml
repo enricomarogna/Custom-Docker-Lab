@@ -30,3 +30,4 @@ services:
     profiles:
       - ${PROFILE}
     restart: unless-stopped
+    

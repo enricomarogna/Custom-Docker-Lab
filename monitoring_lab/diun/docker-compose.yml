@@ -22,7 +22,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      #- DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket_proxy:2375
+      - DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket_proxy:2375
       - DIUN_NOTIF_GOTIFY_ENDPOINT=http://gotify:80
       - DIUN_NOTIF_GOTIFY_TOKENFILE=/run/secrets/DIUN_GOTIFY_TOKEN
       - "LOG_LEVEL=info"
@@ -32,7 +32,6 @@ services:
       - "DIUN_PROVIDERS_DOCKER=true"
       - "DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true" # rileva tutti i container, anche quelli sprovvisti della label "diun.enable=true"
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
       - './conf:/data'
     secrets:
       - DIUN_GOTIFY_TOKEN

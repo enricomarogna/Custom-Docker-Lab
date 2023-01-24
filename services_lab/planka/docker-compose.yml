@@ -1,0 +1,46 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  planka:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    command: >
+      bash -c
+        "for i in `seq 1 30`; do
+          ./start.sh &&
+          s=$$? && break || s=$$?;
+          echo \"Tried $$i times. Waiting 5 seconds...\";
+          sleep 5;
+        done; (exit $$s)"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - BASE_URL=${BASE_URL:-http://localhost:3000}
+      - TRUST_PROXY=${TRUST_PROXY:-0}
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME} #postgresql://postgres@postgres/planka
+      - SECRET_KEY=${SECRET_KEY:-notsecretkey} # openssl rand -hex 64
+    volumes:
+      - './conf/user-avatars:/app/public/user-avatars'
+      - './conf/project-background-images:/app/public/project-background-images'
+      - './conf/attachments:/app/private/attachments'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

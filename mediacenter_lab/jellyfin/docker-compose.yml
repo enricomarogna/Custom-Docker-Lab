@@ -1,0 +1,44 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  jellyfin:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - JELLYFIN_PublishedServerUrl=${CONTAINER_NAME}.${DOMAIN_NAME}
+      # Hardware Acceleration
+      - --device=/dev/dri:/dev/dri
+    volumes:
+      - ./conf/library:/config
+      - ./conf/web-config.json:/usr/share/jellyfin/web/config.json
+      - ${DIR_MEDIA_VIDEO}/movies:/data/movies
+      - ${DIR_MEDIA_VIDEO}/tvshows:/data/tvshows
+      - ${DIR_MEDIA_VIDEO}/kids:/data/kids
+      - ${DIR_MEDIA_VIDEO}/anime:/data/anime
+      - ${DIR_MEDIA_VIDEO}/gigs:/data/gigs
+      - ${DIR_MEDIA_VIDEO}/privati:/data/privati
+    devices:
+      - /dev/dri:/dev/dri # Acceleration Hardware
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped

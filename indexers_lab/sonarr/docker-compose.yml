@@ -19,15 +19,11 @@ services:
     volumes:
       - ./conf:/config # Configurazioni
       - ${DIR_DOWNLOAD_FOLDER}:/downloads # Downloads
-      - ${DIR_MEDIA_TVSHOWS}:/tv # Libreria serie tv
-      - ${DIR_MEDIA_ANIME}:/anime # Libreria anime
+      - ${DIR_MEDIA}/tvshows:/tv # Libreria serie tv
+      - ${DIR_MEDIA}/anime:/anime # Libreria anime
+      - ${DIR_MEDIA}/kids:/kids # Libreria anime
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT}
         #published: ${PORT_PUB}

@@ -16,16 +16,11 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - DOCKER_HOST=tcp://socket_proxy:2375
     volumes:
       - './conf:/data'
-      - '/var/run/docker.sock:/var/run/docker.sock'
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT_EDGEAGENT}
         #published: ${PORT_PUB_EDGEAGENT}

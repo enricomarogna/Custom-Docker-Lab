@@ -13,17 +13,12 @@ services:
     container_name: ${CONTAINER_NAME}
     image: ${IMG_LINK}:${IMG_VERSION:-latest}
     environment:
-      - SYMFONY__ENV__DOMAIN_NAME=https://${CONTAINER_NAME}.${DOMAIN_NAME}
+      - SYMFONY__ENV__DOMAIN_NAME=${SYMFONY__ENV__DOMAIN_NAME}.${DOMAIN_NAME}
     volumes:
       - './conf/data:/var/www/wallabag/data'
       - './conf/images:/var/www/wallabag/web/assets/images'
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT}
         #published: ${PORT_PUB}

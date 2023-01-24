@@ -1,0 +1,43 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  elasticsearch:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      #- PUID=1001
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - discovery.type=single-node
+      - BITNAMI_DEBUG=true
+    #volumes:
+      # - './conf/elasticsearch_data:/bitnami/elasticsearch/data'
+      #- 'elasticsearch_data:/bitnami/elasticsearch/data'
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT_1}
+        #published: ${PORT_PUB}
+        protocol: tcp
+      - target: ${PORT_INT_2}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
+
+# volumes:
+#   elasticsearch_data:
+#     driver: local

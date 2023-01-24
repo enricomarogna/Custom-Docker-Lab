@@ -1,0 +1,41 @@
+---
+version: "3.7"
+
+# NETWORKS
+networks:
+  npm_proxy:
+    external:
+      name: npm_proxy
+
+# SERVICES
+services:
+  goaccess:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMG_LINK}:${IMG_VERSION:-latest}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - SKIP_ARCHIVED_LOGS=${SKIP_ARCHIVED_LOGS:-False} #optional
+      - DEBUG=${DEBUG:-False} #optional
+      - BASIC_AUTH=${BASIC_AUTH:-False} #optional
+      - BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME:-user} #optional
+      - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD:-pass} #optional   
+      - EXCLUDE_IPS=${EXCLUDE_IPS:-127.0.0.1} #optional - comma delimited 
+      - LOG_TYPE=${LOG_TYPE:-NPM} #optional - more information below
+    volumes:
+      #- './conf_folder:/data'
+      - ${NGINX_LOGS_PATH}:/opt/log
+      #- /path/to/host/custom:/opt/custom #optional, required if using log_type = CUSTOM
+    labels:
+      - "diun.enable=true"
+    ports:
+      - target: ${PORT_INT}
+        #published: ${PORT_PUB}
+        protocol: tcp
+    networks:
+      npm_proxy:
+        ipv4_address: ${IP}
+    profiles:
+      - ${PROFILE}
+    restart: unless-stopped
