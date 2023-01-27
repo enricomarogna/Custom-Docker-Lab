@@ -27,6 +27,7 @@ services:
       - APP_ENV=${APP_ENV}
       - APP_DEBUG=${APP_DEBUG}
       - APP_LOCALE=${APP_LOCALE}
+      - APP_TRUSTED_PROXIES=**
       # MAIL
       - MAIL_PORT_587_TCP_ADDR=${MAIL_PORT_587_TCP_ADDR}
       - MAIL_PORT_587_TCP_PORT=${MAIL_PORT_587_TCP_PORT}
@@ -36,12 +37,15 @@ services:
       - MAIL_ENV_USERNAME=${MAIL_ENV_USERNAME}
       - MAIL_ENV_PASSWORD=${MAIL_ENV_PASSWORD}
     volumes:
-      - './conf/config:/data'
+      - './conf/config:/config'
     labels:
       - "diun.enable=true"
     ports:
-      - target: ${PORT_INT}
-        #published: ${PORT_PUB}
+      # - target: ${PORT_INT_HTTP}
+      #   #published: ${PORT_PUB_HTTP}
+      #   protocol: tcp
+      - target: ${PORT_INT_HTTPS}
+        #published: ${PORT_PUB_HTTPS}
         protocol: tcp
     networks:
       npm_proxy:
