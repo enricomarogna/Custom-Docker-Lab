@@ -4,4 +4,4 @@
 
 ---
 Per maggiori specifiche visitare il repository ufficiale:
-[https://github.com/Fallenbagel/jellyseerr]([#](https://github.com/Fallenbagel/jellyseerr))
+[https://github.com/Fallenbagel/jellyseerr](https://github.com/Fallenbagel/jellyseerr)
