@@ -65,6 +65,7 @@
 | [Elasticsearch][]       | -                | Motore di ricerca distribuito, ideale per big data    |
 | [FreshRSS][]            | MySQL            | Server per la gestione dei feed rss                   |
 | [JDownloader][]         | -                | Potente applicazione per la gestione dei download     |
+| [Joplin Server][]       | -                | Server Joplin per sincronizzazione delle note         |
 | [Kimai][]               | -                | Gestionale di monitoraggio attività e fatturazione    |
 | [Linkding][]            | SQLite           | Gestore segnalibri minimale, veloce e leggero         |
 | [Monica][]              | MySQL            | Server CRM per contatti personali                     |
