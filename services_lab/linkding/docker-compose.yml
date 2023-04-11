@@ -20,11 +20,6 @@ services:
       - './conf:/etc/linkding/data'
     labels:
       - "diun.enable=true"
-      # Flame
-      - flame.type=app
-      - flame.name=${CONTAINER_NAME}
-      - flame.url=https://${CONTAINER_NAME}.${DOMAIN_NAME}
-      - flame.icon=${CONTAINER_NAME}.svg
     ports:
       - target: ${PORT_INT}
         #published: ${PORT_PUB}
